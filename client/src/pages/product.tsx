@@ -1,16 +1,17 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle } from "lucide-react";
 
 export default function Product() {
   const features = [
-    "Real-time compliance scoring",
-    "Visual progress tracking", 
-    "Risk-based prioritization"
+    "Real-time cybersecurity progress tracking",
+    "Visual framework implementation status", 
+    "Risk-based task prioritization"
   ];
 
   const taskFeatures = [
-    "Automated task generation from controls",
+    "Automated task generation from framework controls",
     "Team collaboration tools",
     "Progress tracking and notifications"
   ];
@@ -26,9 +27,12 @@ export default function Product() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h1 className="text-4xl font-bold text-zen-dark mb-4">ZenPrivata Platform</h1>
-          <p className="text-xl text-zen-muted max-w-3xl mx-auto">
-            A comprehensive compliance management platform that transforms complex cybersecurity frameworks into manageable, collaborative workflows.
+          <p className="text-xl text-zen-muted max-w-3xl mx-auto mb-8">
+            A SaaS platform that helps Community Development Financial Institutions (CDFIs) build, manage, and simplify their cybersecurity programs. The platform follows a framework specifically designed for CDFIs and uses artificial intelligence to provide 24/7 guidance to the CDFIs.
           </p>
+          <Button className="bg-zen-orange text-white hover:bg-orange-600 transition-colors" size="lg">
+            Request Free Demo
+          </Button>
         </div>
 
         <div className="space-y-16">
@@ -39,7 +43,7 @@ export default function Product() {
                 Comprehensive Security Dashboard
               </h2>
               <p className="text-zen-muted mb-6 leading-relaxed">
-                Monitor your compliance progress across all framework controls with real-time visibility into your security posture. Track implementation status, identify gaps, and prioritize actions.
+                Monitor your cybersecurity program progress across all framework controls with real-time visibility into your security posture. Track implementation status, identify gaps, and prioritize actions with intelligence designed for CDFIs.
               </p>
               <ul className="space-y-2 text-zen-muted">
                 {features.map((feature, index) => (
@@ -53,11 +57,11 @@ export default function Product() {
             <div className="relative">
               <Card className="shadow-lg">
                 <CardContent className="p-6">
-                  <div className="bg-zen-light rounded-lg p-4 text-center">
-                    <div className="text-zen-muted text-sm mb-2">Dashboard Screenshot</div>
-                    <div className="text-zen-dark font-medium">CDFI Security Hub</div>
-                    <div className="text-zen-muted text-xs mt-1">Real dashboard integration coming soon</div>
-                  </div>
+                  <img 
+                    src="/attached_assets/Screenshot5_1754619516724.webp" 
+                    alt="CDFI Security Hub Dashboard"
+                    className="w-full rounded-lg"
+                  />
                 </CardContent>
               </Card>
             </div>
@@ -68,11 +72,11 @@ export default function Product() {
             <div className="order-2 lg:order-1">
               <Card className="shadow-lg">
                 <CardContent className="p-6">
-                  <div className="bg-zen-light rounded-lg p-4 text-center">
-                    <div className="text-zen-muted text-sm mb-2">Task Management Screenshot</div>
-                    <div className="text-zen-dark font-medium">Tasks & Approvals Hub</div>
-                    <div className="text-zen-muted text-xs mt-1">Collaborative task management interface</div>
-                  </div>
+                  <img 
+                    src="/attached_assets/Screenshot3_1754619516726.webp" 
+                    alt="Tasks & Approvals Hub"
+                    className="w-full rounded-lg"
+                  />
                 </CardContent>
               </Card>
             </div>
@@ -81,7 +85,7 @@ export default function Product() {
                 Collaborative Task Management
               </h2>
               <p className="text-zen-muted mb-6 leading-relaxed">
-                Transform security implementations into manageable tasks with clear ownership, deadlines, and progress tracking. Collaborate seamlessly with your team and external partners.
+                Enables collaboration among CDFI team and consultants or outsourced IT team. Transform security implementations into manageable tasks with clear ownership, deadlines, and progress tracking designed for resource-constrained organizations.
               </p>
               <ul className="space-y-2 text-zen-muted">
                 {taskFeatures.map((feature, index) => (
@@ -94,14 +98,62 @@ export default function Product() {
             </div>
           </div>
 
-          {/* AI Assistant */}
+          {/* Control Implementation */}
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-2xl font-semibold text-zen-dark mb-4">
-                AI-Powered Compliance Assistant
+                Simplified Cybersecurity Framework Implementation
               </h2>
               <p className="text-zen-muted mb-6 leading-relaxed">
-                Get intelligent guidance on implementing security controls with our AI assistant. Access contextual help, best practices, and step-by-step implementation guidance tailored to your specific needs.
+                Simplifies complex cybersecurity processes with a structured approach to implementing security controls. Each control provides clear guidance, task breakdown, and evidence collection to ensure comprehensive security coverage.
+              </p>
+              <ul className="space-y-2 text-zen-muted">
+                <li className="flex items-center">
+                  <CheckCircle className="text-zen-success mr-2 h-4 w-4" />
+                  Step-by-step control implementation
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle className="text-zen-success mr-2 h-4 w-4" />
+                  Evidence collection and documentation
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle className="text-zen-success mr-2 h-4 w-4" />
+                  Progress tracking and status updates
+                </li>
+              </ul>
+            </div>
+            <div className="relative">
+              <Card className="shadow-lg">
+                <CardContent className="p-6">
+                  <img 
+                    src="/attached_assets/Screenshot4_1754619516725.webp" 
+                    alt="Control Implementation Interface"
+                    className="w-full rounded-lg"
+                  />
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+
+          {/* AI Assistant */}
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="order-2 lg:order-1">
+              <Card className="shadow-lg">
+                <CardContent className="p-6">
+                  <img 
+                    src="/attached_assets/Screenshot1_1754619516728.webp" 
+                    alt="AI Assistant for Control Implementation"
+                    className="w-full rounded-lg"
+                  />
+                </CardContent>
+              </Card>
+            </div>
+            <div className="order-1 lg:order-2">
+              <h2 className="text-2xl font-semibold text-zen-dark mb-4">
+                AI-Powered Cybersecurity Assistant
+              </h2>
+              <p className="text-zen-muted mb-6 leading-relaxed">
+                Provides expert AI guidance for resource-constrained organizations. Get intelligent guidance on implementing security controls with our AI assistant. Access contextual help, best practices, and step-by-step implementation guidance tailored to your specific CDFI needs.
               </p>
               <ul className="space-y-2 text-zen-muted">
                 {aiFeatures.map((feature, index) => (
@@ -112,14 +164,40 @@ export default function Product() {
                 ))}
               </ul>
             </div>
+          </div>
+
+          {/* Professional Reporting */}
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-2xl font-semibold text-zen-dark mb-4">
+                Professional Reporting & Documentation
+              </h2>
+              <p className="text-zen-muted mb-6 leading-relaxed">
+                Generates professional reports for board presentations and auditors. Create comprehensive documentation that demonstrates your cybersecurity program progress and framework adherence with automated reporting capabilities.
+              </p>
+              <ul className="space-y-2 text-zen-muted">
+                <li className="flex items-center">
+                  <CheckCircle className="text-zen-success mr-2 h-4 w-4" />
+                  Board-ready progress reports
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle className="text-zen-success mr-2 h-4 w-4" />
+                  Auditor documentation packages
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle className="text-zen-success mr-2 h-4 w-4" />
+                  Executive summary dashboards
+                </li>
+              </ul>
+            </div>
             <div className="relative">
               <Card className="shadow-lg">
                 <CardContent className="p-6">
-                  <div className="bg-zen-light rounded-lg p-4 text-center">
-                    <div className="text-zen-muted text-sm mb-2">AI Assistant Screenshot</div>
-                    <div className="text-zen-dark font-medium">AI Assistant for Control 5.1</div>
-                    <div className="text-zen-muted text-xs mt-1">Intelligent compliance guidance</div>
-                  </div>
+                  <img 
+                    src="/attached_assets/Screenshot2_1754619516727.webp" 
+                    alt="Task Management and Progress Tracking"
+                    className="w-full rounded-lg"
+                  />
                 </CardContent>
               </Card>
             </div>
