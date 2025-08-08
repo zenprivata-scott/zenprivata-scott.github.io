@@ -4,52 +4,28 @@ import { Linkedin, Mail, Heart, Lock, HandHeart } from "lucide-react";
 export default function Team() {
   const teamMembers = [
     {
-      name: "Michael Chen",
-      title: "Chief Executive Officer",
-      description: "15+ years in cybersecurity with expertise in financial services compliance and risk management.",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&h=300",
-      linkedin: "https://linkedin.com/in/michael-chen-zenprivata",
-      email: "michael@zenprivata.com"
+      name: "Scott Schlimmer",
+      title: "Co-Founder & CEO",
+      description: "Cybersecurity executive with extensive experience in financial services compliance and CDFI operations.",
+      image: "/scott_1754621048108.avif",
+      linkedin: "https://www.linkedin.com/in/scottschlimmer/",
+      email: "Scott@ZenPrivata.com"
     },
     {
-      name: "Sarah Rodriguez",
-      title: "Chief Privacy Officer",
-      description: "Privacy law specialist with deep experience in GDPR, CCPA, and financial sector privacy regulations.",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612c2d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300",
-      linkedin: "https://linkedin.com/in/sarah-rodriguez-privacy",
-      email: "sarah@zenprivata.com"
+      name: "Matt Wainwright",
+      title: "Co-Founder & CTO",
+      description: "Technology leader specializing in secure platform development and compliance management systems.",
+      image: "/matt_1754621048106.jpeg",
+      linkedin: "https://www.linkedin.com/in/matthewwainwright/",
+      email: "Matt@ZenPrivata.com"
     },
     {
-      name: "David Thompson",
-      title: "Chief Technology Officer",
-      description: "Platform architect and security engineer specializing in scalable compliance management systems.",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300",
-      linkedin: "https://linkedin.com/in/david-thompson-cto",
-      email: "david@zenprivata.com"
-    },
-    {
-      name: "Lisa Williams",
-      title: "Director of CDFI Relations",
-      description: "Former CDFI executive with 20+ years of experience in community development finance and operations.",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300",
-      linkedin: "https://linkedin.com/in/lisa-williams-cdfi",
-      email: "lisa@zenprivata.com"
-    },
-    {
-      name: "James Martinez",
-      title: "Senior Implementation Specialist",
-      description: "Cybersecurity implementation expert with hands-on experience deploying security frameworks at scale.",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300",
-      linkedin: "https://linkedin.com/in/james-martinez-security",
-      email: "james@zenprivata.com"
-    },
-    {
-      name: "Jennifer Park",
-      title: "Senior Compliance Analyst",
-      description: "Regulatory compliance specialist with expertise in financial services audit and risk assessment.",
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300",
-      linkedin: "https://linkedin.com/in/jennifer-park-compliance",
-      email: "jennifer@zenprivata.com"
+      name: "Bret Siarkowski",
+      title: "Co-Founder & Chief Privacy Officer",
+      description: "Privacy and compliance expert with deep knowledge of regulatory frameworks and risk management.",
+      image: "/bret_1754621048107.avif",
+      linkedin: "https://www.linkedin.com/in/bret-siarkowski-323117/",
+      email: "Bret@ZenPrivata.com"
     }
   ];
 
