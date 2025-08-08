@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { Linkedin, Mail } from "lucide-react";
-import logoImage from "@assets/ZenPrivataLogo Transparent Background_1754619186285.png";
+import logoImage from "@assets/ZenPrivataLogo Transparent Logo_1754619317070.png";
 
 export default function Footer() {
   return (
@@ -9,8 +9,13 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="md:col-span-2">
-            <div className="mb-4">
-              <img src={logoImage} alt="ZenPrivata Logo" className="h-12 object-contain" />
+            <div className="flex items-center space-x-3 mb-4">
+              <img src={logoImage} alt="ZenPrivata Logo" className="w-8 h-8 object-contain" />
+              <div>
+                <span className="text-zen-muted font-light text-xl">ZEN</span>
+                <span className="text-white font-bold text-xl">PRIVATA</span>
+                <sup className="text-xs">®</sup>
+              </div>
             </div>
             <p className="text-gray-400 mb-4 max-w-md">
               Protecting Community Development Financial Institutions with comprehensive cybersecurity and privacy frameworks designed for your unique needs.
