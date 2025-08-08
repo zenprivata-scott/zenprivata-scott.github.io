@@ -11,13 +11,22 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const leadData = insertLeadSchema.parse(req.body);
       const lead = await storage.createLead(leadData);
 
-      // Here you would integrate with Resend to send the PDF
-      // For now, we'll just simulate the email sending
-      const resendApiKey = process.env.RESEND_API_KEY || process.env.RESEND_KEY || "default_resend_key";
-      
-      // TODO: Implement actual Resend integration
-      console.log(`Sending CDFI framework PDF to ${lead.email} using Resend API key: ${resendApiKey}`);
-      
+      // Send notification email to Scott@ZenPrivata.com
+      try {
+        // In a real application, you would use an email service like SendGrid, Nodemailer, etc.
+        // For now, we'll log the notification that would be sent
+        console.log(`EMAIL NOTIFICATION TO scott@zenprivata.com:
+        Subject: New CDFI Framework Download
+        User Email: ${leadData.email}
+        Organization: ${leadData.organization || 'Not provided'}
+        Downloaded: CDFI Security and Privacy Framework
+        Timestamp: ${new Date().toISOString()}
+      `);
+      } catch (emailError) {
+        console.error('Error sending notification email:', emailError);
+        // Don't fail the request if email fails
+      }
+
       res.json({ 
         success: true, 
         message: "Thank you! Please check your email for the download link.",
@@ -40,7 +49,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       // Send email to hello@zenprivata.com
       const resendApiKey = process.env.RESEND_API_KEY || process.env.RESEND_KEY || "default_resend_key";
-      
+
       // TODO: Implement actual Resend integration
       console.log(`Sending contact form submission to hello@zenprivata.com using Resend API key: ${resendApiKey}`);
       console.log(`Contact details:`, {
@@ -69,9 +78,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.post("/api/demo", async (req, res) => {
     try {
       const { name, email, organization } = req.body;
-      
+
       const resendApiKey = process.env.RESEND_API_KEY || process.env.RESEND_KEY || "default_resend_key";
-      
+
       // TODO: Implement actual Resend integration for demo requests
       console.log(`Demo request from ${name} (${email}) at ${organization} using Resend API key: ${resendApiKey}`);
 

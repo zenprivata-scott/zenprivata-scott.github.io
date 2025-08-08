@@ -5,18 +5,18 @@ export default function FeaturesSection() {
   const features = [
     {
       icon: Shield,
-      title: "Comprehensive Protection",
-      description: "Multi-layered security controls designed for financial institutions handling sensitive personal and financial data."
+      title: "Risks",
+      description: "CDFIs face many attempts from attackers to imitate an executive, pushing a financial officer to send CDFI funds to the attacker's bank account. CDFIs hold sensitive personal information and their reputation would be damaged if that sensitive information were exfiltrated."
     },
     {
       icon: Bot,
-      title: "AI-Powered Assistance",
-      description: "Smart recommendations and automated guidance to help implement and maintain security controls effectively."
+      title: "Limitations", 
+      description: "CDFIs also often have limited financial resources available for cybersecurity and privacy. CDFIs typically have limited personnel hours available, making it difficult to implement complicated security controls."
     },
     {
       icon: TrendingUp,
-      title: "Compliance Tracking",
-      description: "Real-time monitoring and reporting to ensure ongoing compliance with industry standards and regulations."
+      title: "Needs",
+      description: "CDFIs need cybersecurity controls that reduce the risk of financial attacks and protect customers' sensitive information. CDFIs typically need cybersecurity controls that are simpler to implement and provide the most impact for the smallest cost."
     }
   ];
 
@@ -24,9 +24,9 @@ export default function FeaturesSection() {
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-zen-dark mb-4">Built Specifically for CDFIs</h2>
+          <h2 className="text-3xl font-bold text-zen-dark mb-4">Understanding CDFI Challenges</h2>
           <p className="text-xl text-zen-muted max-w-3xl mx-auto">
-            Our comprehensive framework addresses the unique security challenges faced by Community Development Financial Institutions.
+            CDFIs face unique cybersecurity challenges that require specialized solutions designed for their specific needs and constraints.
           </p>
         </div>
 

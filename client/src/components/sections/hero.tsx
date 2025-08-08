@@ -18,11 +18,10 @@ export default function HeroSection() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <h1 className="text-4xl lg:text-5xl font-bold text-zen-dark mb-6 leading-tight">
-              Secure Your CDFI with AI-Powered{" "}
-              <span className="text-zen-orange">Cybersecurity</span>
+              Secure Your <span className="text-zen-orange">CDFI</span>
             </h1>
             <p className="text-xl text-zen-muted mb-8 leading-relaxed">
-              The only cybersecurity and privacy framework designed specifically for Community Development Financial Institutions. Protect sensitive data, ensure compliance, and build trust with your community.
+              ZenPrivata is the preferred security and privacy provider for CDFIs. We've worked with both CDFI associations and individual CDFIs and know the unique needs that CDFIs have.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button
