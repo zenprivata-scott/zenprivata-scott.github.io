@@ -1,0 +1,104 @@
+Create a Professional Marketing Website for CDFI Cybersecurity Compliance Platform & Consulting Services
+
+Build a modern, professional marketing website to promote our comprehensive CDFI cybersecurity compliance management platform and consulting services.
+
+Project Overview
+Create a public-facing marketing website for a sophisticated SaaS platform that helps Community Development Financial Institutions (CDFIs) improve their cybersecurity posture.
+
+Build a website that positions both the SaaS platform and consulting services as the complete solution for CDFI cybersecurity compliance management, emphasizing the AI-powered assistance and expert human guidance that sets this offering apart in the market.
+
+At a minimum, there should be home page, a product page, a services page, a team page, and a contact page. Each of these should have a link in the header of all the pages. There is also a ZenPrivata blog that already exists at https://blog.zenprivata.com/. A link to the blog should also be included in the header links. Open the blog link in a new tab.
+
+Key Messaging:
+-AI-Powered Cybersecurity Designed Specifically for CDFIs
+-ZenPrivata is the preferred security and privacy provider for CDFIs.
+-We’ve worked with both CDFI associations and individual CDFIs and know the unique needs that CDFIs have. 
+
+Main page details
+
+Hero text:
+ZenPrivata is the preferred security and privacy provider for CDFIs. We’ve worked with both CDFI associations and individual CDFIs and know the unique needs that CDFIs have. 
+
+Other key text: 
+Risks
+-CDFIs face many attempts from attackers to imitate an executive, pushing a financial officer to send CDFI funds to the attacker’s bank account.
+-CDFIs hold sensitive personal information and that their reputation would be damaged if that sensitive information were exfiltrated.
+
+Limitations
+-CDFIs also often have limited financial resources available for cybersecurity and privacy.
+-CDFIs typically have limited personnel hours available, making it difficult to implement complicated security controls.
+
+Needs
+-CDFIs need cybersecurity controls that reduce the risk of financial attacks and protect customers' sensitive information.
+-CDFIs typically need cybersecurity controls that are simpler to implement and provide the most impact for the smallest cost.
+
+Platform page details
+
+CTA: Request Free Demo
+
+SaaS platform that helps Community Development Financial Institutions (CDFIs) build, manage, and simplify their cybersecurity programs. The platform follows a framework specifically designed for CDFIs and uses artificial intelligence to provide 24/7 guidance to the CDFIs.
+
+-Simplifies complex cybersecurity compliance processes
+-Provides expert AI guidance for resource-constrained organizations
+-Enables collaboration among CDFI team and consultants or outsourced IT team
+-Generates professional reports for board presentations and auditors
+
+Be sure to include screenshots (these are attached as screenshot*.webp)
+
+Services page details
+
+CTA: Free consultation
+
+ZenPrivata is the preferred security and privacy provider for CDFIs. We’ve worked with both CDFI associations and individual CDFIs and know the unique needs that CDFIs have. 
+
+Our approach:
+-Meet with the CDFI to learn their particular circumstances 
+-Combine our experience with CDFIs along with the specifics of the CDFI to create a customized approach, focusing first on cybersecurity controls that will bring the most improvement for the least expenditure and effort
+-Help the CDFI implement the cybersecurity controls
+
+We provide:
+Expert guidance for resource-constrained organizations
+Risk assessment and determining what cybersecurity controls to prioritize
+Implementation assistance
+Staff training
+Ongoing support
+
+Team page details
+Scott Schlimmer (https://www.linkedin.com/in/scottschlimmer/)
+Matt Wainwright (https://www.linkedin.com/in/matthewwainwright/)
+Bret Siarkowski (https://www.linkedin.com/in/bret-siarkowski-323117/)
+
+Contact page details
+We can be reached at Hello@ZenPrivata.com
+Add a contact form that, when filled out, sends the e-mail to Hello@ZenPrivata.com. The contact form should collect the user's email address and allow them to write a message. It also should have a checkbox that needs to be checked to provide consent to be contacted by ZenPrivata (default state unchecked)
+
+Lead magnet for home page, a product page, and services page: 
+Download the CDFI cybersecurity framework
+
+"ZenPrivata was commissioned by the African American Alliance of CDFI CEOs to develop a security and privacy framework for Community Development Financial Institutions (CDFI) as part of their Women-Led Initiative Technology Enhancement Project. 
+
+The CDFI Security and Privacy Framework (CDFI-SPF) was created specifically with the needs and abilities of CDFIs in mind. We met with CDFIs and learned what dangers they face, what risks would be most harmful to CDFIs, what systems CDFIs use and what their attack surface looked like, and what controls CDFIs typically already had in place.
+
+CDFI’s can use the Framework, free of charge, to determine which cybersecurity and privacy controls they should implement and to track their progress."
+
+--Please require that users provide their e-mail to download the PDF, which I've attached. Trigger an email to Scott@ZenPrivata.com each time a user enters their email to download the PDF, which includes the user's e-mail address and tells what the user downloaded.
+
+Design Requirements:
+
+Professional, trustworthy design suitable for financial industry
+Mobile-responsive layout
+Fast loading times
+Security-focused imagery and messaging
+Clean, modern UI with financial services aesthetic
+Use the attached color wheel. Primary color 1585C (#FF712F)
+Header on every page with links to home page, product page, services page, team page, contact page, and blog
+Footer on every page with links to privacy notice, email (Hello@ZenPrivata.com), and LinkedIn (https://www.linkedin.com/company/zenprivata/)
+Use attached logo
+
+Technical Specifications:
+
+**Be sure to include GDPR-compliant cookie consent forms for the website and to only collect cookies from users who provide consent.**
+Use resend for sending emails, not sendgrid
+SEO optimization for cybersecurity and CDFI-related keywords (ie CDFI cybersecurity, cybersecurity for financial institutions, affordable CDFI cyber solutions)
+Fast loading performance
+Professional hosting-ready build
