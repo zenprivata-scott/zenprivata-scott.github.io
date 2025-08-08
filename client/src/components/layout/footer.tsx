@@ -1,5 +1,6 @@
 import { Link } from "wouter";
 import { Linkedin, Mail } from "lucide-react";
+import logoImage from "@assets/Small Logo_1754618963157.jpg";
 
 export default function Footer() {
   return (
@@ -9,7 +10,7 @@ export default function Footer() {
           {/* Company Info */}
           <div className="md:col-span-2">
             <div className="flex items-center space-x-3 mb-4">
-              <img src="/logo.svg" alt="ZenPrivata Logo" className="w-8 h-8" />
+              <img src={logoImage} alt="ZenPrivata Logo" className="w-8 h-8 object-contain" />
               <div>
                 <span className="text-zen-muted font-light text-xl">ZEN</span>
                 <span className="text-white font-bold text-xl">PRIVATA</span>

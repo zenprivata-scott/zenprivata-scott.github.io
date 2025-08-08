@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import logoImage from "@assets/Small Logo_1754618963157.jpg";
 
 export default function Navigation() {
   const [location] = useLocation();
@@ -28,7 +29,7 @@ export default function Navigation() {
           {/* Logo */}
           <Link href="/" className="flex-shrink-0 flex items-center">
             <div className="flex items-center space-x-3">
-              <img src="/logo.svg" alt="ZenPrivata Logo" className="w-8 h-8" />
+              <img src={logoImage} alt="ZenPrivata Logo" className="w-8 h-8 object-contain" />
               <div>
                 <span className="text-zen-muted font-light text-xl">ZEN</span>
                 <span className="text-zen-dark font-bold text-xl">PRIVATA</span>
