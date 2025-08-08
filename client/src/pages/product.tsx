@@ -57,7 +57,7 @@ export default function Product() {
               <Card className="shadow-lg">
                 <CardContent className="p-6">
                   <img 
-                    src="/Screenshot5_1754619516724.webp" 
+                    src="/Screenshot1.webp" 
                     alt="CDFI Security Hub Dashboard"
                     className="w-full rounded-lg"
                   />
@@ -125,7 +125,7 @@ export default function Product() {
               <Card className="shadow-lg">
                 <CardContent className="p-6">
                   <img 
-                    src="/Screenshot4_1754619516725.webp" 
+                    src="/Screenshot2.webp" 
                     alt="Control Implementation Interface"
                     className="w-full rounded-lg"
                   />
@@ -140,7 +140,7 @@ export default function Product() {
               <Card className="shadow-lg">
                 <CardContent className="p-6">
                   <img 
-                    src="/Screenshot1_1754619995941.webp" 
+                    src="/Screenshot5.webp" 
                     alt="AI Assistant for Control Implementation"
                     className="w-full rounded-lg"
                   />
@@ -193,7 +193,7 @@ export default function Product() {
               <Card className="shadow-lg">
                 <CardContent className="p-6">
                   <img 
-                    src="/Screenshot2_1754619516727.webp" 
+                    src="/Screenshot6.webp" 
                     alt="Task Management and Progress Tracking"
                     className="w-full rounded-lg"
                   />
