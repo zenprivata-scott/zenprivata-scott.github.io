@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle } from "lucide-react";
@@ -126,7 +125,7 @@ export default function Product() {
               <Card className="shadow-lg">
                 <CardContent className="p-6">
                   <img 
-                    src="/attached_assets/Screenshot4_1754619516725.webp" 
+                    src="/Screenshot4_1754619516725.webp" 
                     alt="Control Implementation Interface"
                     className="w-full rounded-lg"
                   />
