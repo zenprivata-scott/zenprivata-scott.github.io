@@ -52,7 +52,7 @@ export default function CookieConsent() {
             <Button
               onClick={declineCookies}
               variant="outline"
-              className="border-gray-300 text-white hover:bg-gray-700 transition-colors"
+              className="border-white border-2 text-white hover:bg-white hover:text-zen-dark transition-colors"
               size="sm"
             >
               Decline
