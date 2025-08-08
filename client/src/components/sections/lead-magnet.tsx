@@ -13,7 +13,6 @@ import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 
 const leadFormSchema = z.object({
-  firstName: z.string().min(1, "First name is required"),
   email: z.string().email("Invalid email address"),
   organization: z.string().min(1, "Organization name is required"),
   gdprConsent: z.boolean().refine(val => val === true, "You must consent to proceed"),
@@ -28,7 +27,6 @@ export default function LeadMagnetSection() {
   const form = useForm<LeadFormData>({
     resolver: zodResolver(leadFormSchema),
     defaultValues: {
-      firstName: "",
       email: "",
       organization: "",
       gdprConsent: false,
@@ -89,24 +87,11 @@ export default function LeadMagnetSection() {
         <p className="text-xl text-zen-muted mb-8">
           Get our comprehensive 44-page security and privacy framework designed specifically for CDFIs - completely free.
         </p>
-        
+
         <Card className="shadow-lg max-w-md mx-auto">
           <CardContent className="p-8">
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-                <FormField
-                  control={form.control}
-                  name="firstName"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormControl>
-                        <Input placeholder="First Name" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                
                 <FormField
                   control={form.control}
                   name="email"
@@ -119,7 +104,7 @@ export default function LeadMagnetSection() {
                     </FormItem>
                   )}
                 />
-                
+
                 <FormField
                   control={form.control}
                   name="organization"
@@ -132,7 +117,7 @@ export default function LeadMagnetSection() {
                     </FormItem>
                   )}
                 />
-                
+
                 <FormField
                   control={form.control}
                   name="gdprConsent"
@@ -155,7 +140,7 @@ export default function LeadMagnetSection() {
                     </FormItem>
                   )}
                 />
-                
+
                 <Button
                   type="submit"
                   className="w-full bg-zen-orange text-white hover:bg-orange-600 transition-colors"

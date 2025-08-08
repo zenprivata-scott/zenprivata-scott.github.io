@@ -100,7 +100,7 @@ export default function Footer() {
 
         <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <div className="text-gray-400 text-sm">
-            © 2024 ZenPrivata. All rights reserved. Sponsored by the African American Alliance of CDFI CEOs.
+            © 2025 ZenPrivata. All rights reserved.
           </div>
           <div className="mt-4 md:mt-0">
             <a

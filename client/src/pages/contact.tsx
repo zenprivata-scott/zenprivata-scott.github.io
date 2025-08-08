@@ -68,11 +68,7 @@ export default function Contact() {
     submitContactMutation.mutate(data);
   };
 
-  const officeHours = [
-    { day: "Monday - Friday", hours: "9:00 AM - 6:00 PM EST" },
-    { day: "Saturday", hours: "10:00 AM - 2:00 PM EST" },
-    { day: "Sunday", hours: "Closed" }
-  ];
+  
 
   if (isSubmitted) {
     return (
@@ -277,30 +273,17 @@ export default function Contact() {
                 </div>
               </div>
 
-              <div>
-                <h3 className="text-xl font-semibold text-zen-dark mb-4">Office Hours</h3>
-                <div className="space-y-2 text-zen-muted">
-                  {officeHours.map((schedule, index) => (
-                    <div key={index} className="flex justify-between">
-                      <span>{schedule.day}</span>
-                      <span>{schedule.hours}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div>
-                <h3 className="text-xl font-semibold text-zen-dark mb-4">Emergency Support</h3>
-                <p className="text-zen-muted">
-                  For active security incidents, our emergency response team is available 24/7 for existing clients.
-                </p>
-              </div>
-
               <Card className="bg-zen-light">
                 <CardContent className="p-6">
                   <h3 className="text-lg font-semibold text-zen-dark mb-3">Quick Actions</h3>
                   <div className="space-y-3">
-                    <Button className="w-full bg-zen-orange text-white hover:bg-orange-600 transition-colors">
+                    <Button 
+                      className="w-full bg-zen-orange text-white hover:bg-orange-600 transition-colors"
+                      onClick={() => {
+                        // Since we're already on the contact page, scroll to the form
+                        document.querySelector('form')?.scrollIntoView({ behavior: 'smooth' });
+                      }}
+                    >
                       <Calendar className="mr-2 h-4 w-4" />
                       Schedule a Demo
                     </Button>

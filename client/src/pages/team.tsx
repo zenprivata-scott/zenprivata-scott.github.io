@@ -66,7 +66,6 @@ export default function Team() {
                 className="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
               />
               <h3 className="text-xl font-semibold text-zen-dark mb-1">{member.name}</h3>
-              <p className="text-zen-orange font-medium mb-2">{member.title}</p>
               <p className="text-zen-muted text-sm mb-4">{member.description}</p>
               <div className="flex justify-center space-x-3">
                 <a

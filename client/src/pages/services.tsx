@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { 
@@ -69,9 +68,13 @@ export default function Services() {
           <p className="text-xl text-zen-muted max-w-3xl mx-auto mb-8">
             Comprehensive cybersecurity and privacy services tailored specifically for Community Development Financial Institutions.
           </p>
-          
+
           {/* Early CTA */}
-          <Button className="bg-zen-orange text-white hover:bg-orange-600 transition-colors" size="lg">
+          <Button 
+            className="bg-zen-orange text-white hover:bg-orange-600 transition-colors" 
+            size="lg"
+            onClick={() => window.location.href = "/contact"}
+          >
             Schedule Free Consultation
           </Button>
         </div>
@@ -134,11 +137,21 @@ export default function Services() {
           <p className="text-zen-muted mb-8 max-w-2xl mx-auto">
             Schedule a free consultation to discuss your specific needs and learn how our services can help protect your organization.
           </p>
-          <Button className="bg-zen-orange text-white hover:bg-orange-600 transition-colors" size="lg">
+          <Button 
+            className="bg-zen-orange text-white hover:bg-orange-600 transition-colors" 
+            size="lg"
+            onClick={() => window.location.href = "/contact"}
+          >
             Schedule Free Consultation
           </Button>
         </div>
       </div>
+
+      <footer className="bg-zen-dark text-white py-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p>&copy; 2025 ZenPrivata. All rights reserved.</p>
+        </div>
+      </footer>
     </div>
   );
 }

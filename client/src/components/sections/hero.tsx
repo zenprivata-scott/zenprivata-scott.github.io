@@ -4,7 +4,6 @@ import { Play, Download } from "lucide-react";
 
 export default function HeroSection() {
   const handleRequestDemo = () => {
-    // Scroll to contact form or open demo modal
     window.location.href = "/contact";
   };
 
