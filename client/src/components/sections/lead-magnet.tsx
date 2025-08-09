@@ -80,17 +80,21 @@ export default function LeadMagnetSection() {
 
   return (
     <section id="lead-magnet" className="py-20 bg-gradient-to-r from-zen-light to-white">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-3xl font-bold text-zen-dark mb-4">
-          Download the CDFI Cybersecurity Framework
-        </h2>
-        <p className="text-xl text-zen-muted mb-8">
-          ZenPrivata was commissioned by the African American Alliance of CDFI CEOs to develop a security and privacy framework for Community Development Financial Institutions (CDFI) as part of their Women-Led Initiative Technology Enhancement Project. 
-          <br /><br />
-          The CDFI Security and Privacy Framework (CDFI-SPF) was created specifically with the needs and abilities of CDFIs in mind. We met with CDFIs and learned what dangers they face, what risks would be most harmful to CDFIs, what systems CDFIs use and what their attack surface looked like, and what controls CDFIs typically already had in place.
-          <br /><br />
-          CDFI's can use the Framework, free of charge, to determine which cybersecurity and privacy controls they should implement and to track their progress.
-        </p>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center">
+          <h2 className="text-3xl lg:text-4xl font-bold text-zen-dark mb-6">
+            Download the CDFI Cybersecurity Framework
+          </h2>
+          <p className="text-lg text-zen-muted max-w-3xl mx-auto mb-6 leading-relaxed">
+            ZenPrivata was commissioned by the African American Alliance of CDFI CEOs to develop a security and privacy framework for Community Development Financial Institutions (CDFI) as part of their Women-Led Initiative Technology Enhancement Project.
+          </p>
+          <p className="text-base text-zen-muted max-w-3xl mx-auto mb-6 leading-relaxed">
+            The CDFI Security and Privacy Framework (CDFI-SPF) was created specifically with the needs and abilities of CDFIs in mind. We met with CDFIs and learned what dangers they face, what risks would be most harmful to CDFIs, what systems CDFIs use and what their attack surface looked like, and what controls CDFIs typically already had in place.
+          </p>
+          <p className="text-base text-zen-muted max-w-2xl mx-auto mb-8 leading-relaxed">
+            CDFIs can use the Framework, free of charge, to determine which cybersecurity and privacy controls they should implement and to track their progress.
+          </p>
+        </div>
 
         <Card className="shadow-lg max-w-md mx-auto">
           <CardContent className="p-8">
