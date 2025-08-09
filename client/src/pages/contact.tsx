@@ -103,9 +103,9 @@ export default function Contact() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="flex justify-center">
           {/* Contact Form */}
-          <Card className="shadow-lg">
+          <Card className="shadow-lg max-w-2xl w-full">
             <CardContent className="p-8">
               <h2 className="text-2xl font-semibold text-zen-dark mb-6">Send us a message</h2>
               <Form {...form}>
@@ -245,60 +245,6 @@ export default function Contact() {
               </Form>
             </CardContent>
           </Card>
-
-          {/* Contact Information */}
-          <div>
-            <div className="space-y-8">
-              <div>
-                <h2 className="text-2xl font-semibold text-zen-dark mb-6">Contact Information</h2>
-                <div className="space-y-4">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-zen-orange bg-opacity-10 rounded-lg flex items-center justify-center">
-                      <Mail className="text-zen-orange h-5 w-5" />
-                    </div>
-                    <div>
-                      <div className="font-medium text-zen-dark">Email</div>
-                      <div className="text-zen-muted">hello@zenprivata.com</div>
-                    </div>
-                  </div>
-                  <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-zen-orange bg-opacity-10 rounded-lg flex items-center justify-center">
-                      <Linkedin className="text-zen-orange h-5 w-5" />
-                    </div>
-                    <div>
-                      <div className="font-medium text-zen-dark">LinkedIn</div>
-                      <div className="text-zen-muted">linkedin.com/company/zenprivata</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <Card className="bg-zen-light">
-                <CardContent className="p-6">
-                  <h3 className="text-lg font-semibold text-zen-dark mb-3">Quick Actions</h3>
-                  <div className="space-y-3">
-                    <Button 
-                      className="w-full bg-zen-orange text-white hover:bg-orange-600 transition-colors"
-                      onClick={() => {
-                        // Since we're already on the contact page, scroll to the form
-                        document.querySelector('form')?.scrollIntoView({ behavior: 'smooth' });
-                      }}
-                    >
-                      <Calendar className="mr-2 h-4 w-4" />
-                      Schedule a Demo
-                    </Button>
-                    <Button 
-                      variant="outline" 
-                      className="w-full border-2 border-zen-orange text-zen-orange hover:bg-zen-orange hover:text-white transition-colors"
-                    >
-                      <Download className="mr-2 h-4 w-4" />
-                      Download Framework
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
         </div>
       </div>
     </div>
