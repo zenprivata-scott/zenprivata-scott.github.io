@@ -6,17 +6,26 @@ export default function FeaturesSection() {
     {
       icon: Shield,
       title: "Risks",
-      description: "CDFIs face many attempts from attackers to imitate an executive, pushing a financial officer to send CDFI funds to the attacker's bank account. CDFIs hold sensitive personal information and their reputation would be damaged if that sensitive information were exfiltrated."
+      bullets: [
+        "CDFIs face many attempts from attackers to imitate an executive, pushing a financial officer to send CDFI funds to the attacker's bank account.",
+        "CDFIs hold sensitive personal information and their reputation would be damaged if that sensitive information were exfiltrated."
+      ]
     },
     {
       icon: Bot,
-      title: "Limitations", 
-      description: "CDFIs also often have limited financial resources available for cybersecurity and privacy. CDFIs typically have limited personnel hours available, making it difficult to implement complicated security controls."
+      title: "Limitations",
+      bullets: [
+        "CDFIs also often have limited financial resources available for cybersecurity and privacy.",
+        "CDFIs typically have limited personnel hours available, making it difficult to implement complicated security controls."
+      ]
     },
     {
       icon: TrendingUp,
       title: "Needs",
-      description: "CDFIs need cybersecurity controls that reduce the risk of financial attacks and protect customers' sensitive information. CDFIs typically need cybersecurity controls that are simpler to implement and provide the most impact for the smallest cost."
+      bullets: [
+        "CDFIs need cybersecurity controls that reduce the risk of financial attacks and protect customers' sensitive information.",
+        "CDFIs typically need cybersecurity controls that are simpler to implement and provide the most impact for the smallest cost."
+      ]
     }
   ];
 
@@ -38,7 +47,14 @@ export default function FeaturesSection() {
                   <feature.icon className="text-zen-orange h-8 w-8" />
                 </div>
                 <h3 className="text-xl font-semibold text-zen-dark mb-3">{feature.title}</h3>
-                <p className="text-zen-muted">{feature.description}</p>
+                <ul className="text-zen-muted text-left space-y-2">
+                  {feature.bullets.map((bullet, bulletIndex) => (
+                    <li key={bulletIndex} className="flex items-start">
+                      <span className="text-zen-orange mr-2 mt-1 text-sm">•</span>
+                      <span>{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
               </CardContent>
             </Card>
           ))}
