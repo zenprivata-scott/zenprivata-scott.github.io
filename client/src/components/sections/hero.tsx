@@ -47,7 +47,7 @@ export default function HeroSection() {
             <Card className="shadow-2xl border">
               <CardContent className="p-6">
                 <img 
-                  src="/dashboard-team.png" 
+                  src="/dashboard-team.webp" 
                   alt="Team collaborating on cybersecurity dashboard"
                   className="w-full rounded-lg"
                 />
