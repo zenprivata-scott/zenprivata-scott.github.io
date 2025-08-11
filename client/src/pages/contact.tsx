@@ -15,11 +15,8 @@ import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 
 const contactFormSchema = z.object({
-  firstName: z.string().min(1, "First name is required"),
-  lastName: z.string().min(1, "Last name is required"),
   email: z.string().email("Invalid email address"),
-  organization: z.string().optional(),
-  subject: z.string().min(1, "Please select a subject"),
+  organization: z.string().min(1, "Organization is required"),
   message: z.string().min(10, "Message must be at least 10 characters"),
   consent: z.boolean().refine(val => val === true, "You must consent to proceed"),
 });
@@ -33,11 +30,8 @@ export default function Contact() {
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: {
-      firstName: "",
-      lastName: "",
       email: "",
       organization: "",
-      subject: "",
       message: "",
       consent: false,
     },
@@ -110,35 +104,6 @@ export default function Contact() {
               <h2 className="text-2xl font-semibold text-zen-dark mb-6">Send us a message</h2>
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <FormField
-                      control={form.control}
-                      name="firstName"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>First Name *</FormLabel>
-                          <FormControl>
-                            <Input {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="lastName"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Last Name *</FormLabel>
-                          <FormControl>
-                            <Input {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                  </div>
-                  
                   <FormField
                     control={form.control}
                     name="email"
@@ -158,35 +123,10 @@ export default function Contact() {
                     name="organization"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Organization</FormLabel>
+                        <FormLabel>Organization *</FormLabel>
                         <FormControl>
                           <Input {...field} />
                         </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  
-                  <FormField
-                    control={form.control}
-                    name="subject"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Subject *</FormLabel>
-                        <Select onValueChange={field.onChange} defaultValue={field.value}>
-                          <FormControl>
-                            <SelectTrigger>
-                              <SelectValue placeholder="Select a topic" />
-                            </SelectTrigger>
-                          </FormControl>
-                          <SelectContent>
-                            <SelectItem value="demo">Request a Demo</SelectItem>
-                            <SelectItem value="consultation">Free Consultation</SelectItem>
-                            <SelectItem value="implementation">Framework Implementation</SelectItem>
-                            <SelectItem value="support">Technical Support</SelectItem>
-                            <SelectItem value="other">Other</SelectItem>
-                          </SelectContent>
-                        </Select>
                         <FormMessage />
                       </FormItem>
                     )}
@@ -214,21 +154,23 @@ export default function Contact() {
                     control={form.control}
                     name="consent"
                     render={({ field }) => (
-                      <FormItem className="flex items-start space-x-2">
+                      <FormItem className="flex flex-row items-start space-x-3 space-y-0">
                         <FormControl>
                           <Checkbox
                             checked={field.value}
                             onCheckedChange={field.onChange}
                           />
                         </FormControl>
-                        <div className="text-sm text-zen-muted">
-                          I consent to ZenPrivata contacting me about my inquiry and agree to the processing of my personal data as outlined in the{" "}
-                          <a href="#privacy" className="text-zen-orange underline">
-                            Privacy Policy
-                          </a>
-                          .
+                        <div className="space-y-1 leading-none">
+                          <div className="text-sm text-zen-muted">
+                            I consent to ZenPrivata contacting me about my inquiry and agree to the processing of my personal data as outlined in the{" "}
+                            <a href="#privacy" className="text-zen-orange underline">
+                              Privacy Policy
+                            </a>
+                            .
+                          </div>
+                          <FormMessage />
                         </div>
-                        <FormMessage />
                       </FormItem>
                     )}
                   />
