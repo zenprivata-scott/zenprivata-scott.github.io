@@ -53,10 +53,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // TODO: Implement actual Resend integration
       console.log(`Sending contact form submission to hello@zenprivata.com using Resend API key: ${resendApiKey}`);
       console.log(`Contact details:`, {
-        name: `${contact.firstName} ${contact.lastName}`,
         email: contact.email,
         organization: contact.organization,
-        subject: contact.subject,
         message: contact.message
       });
 

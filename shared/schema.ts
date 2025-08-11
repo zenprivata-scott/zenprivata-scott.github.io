@@ -20,11 +20,8 @@ export const leads = pgTable("leads", {
 
 export const contacts = pgTable("contacts", {
   id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
-  firstName: text("first_name").notNull(),
-  lastName: text("last_name").notNull(),
   email: text("email").notNull(),
-  organization: text("organization"),
-  subject: text("subject").notNull(),
+  organization: text("organization").notNull(),
   message: text("message").notNull(),
   consent: boolean("consent").notNull().default(false),
   createdAt: timestamp("created_at").defaultNow(),
