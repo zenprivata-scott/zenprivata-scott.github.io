@@ -81,23 +81,25 @@ export default function LeadMagnetSection() {
   return (
     <section id="lead-magnet" className="py-20 bg-gradient-to-r from-zen-light to-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Centered Title */}
+        <div className="text-center mb-12">
+          <h2 className="text-3xl lg:text-4xl font-bold text-zen-dark">
+            Download the CDFI Cybersecurity Framework
+          </h2>
+        </div>
+
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Text Content - Left Side */}
-          <div className="space-y-6">
-            <h2 className="text-3xl lg:text-4xl font-bold text-zen-dark">
-              Download the CDFI Cybersecurity Framework
-            </h2>
-            <div className="space-y-4">
-              <p className="text-base text-zen-muted leading-relaxed">
-                ZenPrivata was commissioned by the African American Alliance of CDFI CEOs to develop a security and privacy framework for Community Development Financial Institutions (CDFI) as part of their Women-Led Initiative Technology Enhancement Project.
-              </p>
-              <p className="text-base text-zen-muted leading-relaxed">
-                The CDFI Security and Privacy Framework (CDFI-SPF) was created specifically with the needs and abilities of CDFIs in mind. We met with CDFIs and learned what dangers they face, what risks would be most harmful to CDFIs, what systems CDFIs use and what their attack surface looked like, and what controls CDFIs typically already had in place.
-              </p>
-              <p className="text-base text-zen-muted leading-relaxed">
-                CDFIs can use the Framework, free of charge, to determine which cybersecurity and privacy controls they should implement and to track their progress.
-              </p>
-            </div>
+          <div className="space-y-4">
+            <p className="text-base text-zen-muted leading-relaxed">
+              ZenPrivata was commissioned by the African American Alliance of CDFI CEOs to develop a security and privacy framework for Community Development Financial Institutions (CDFI) as part of their Women-Led Initiative Technology Enhancement Project.
+            </p>
+            <p className="text-base text-zen-muted leading-relaxed">
+              The CDFI Security and Privacy Framework (CDFI-SPF) was created specifically with the needs and abilities of CDFIs in mind. We met with CDFIs and learned what dangers they face, what risks would be most harmful to CDFIs, what systems CDFIs use and what their attack surface looked like, and what controls CDFIs typically already had in place.
+            </p>
+            <p className="text-base text-zen-muted leading-relaxed">
+              CDFIs can use the Framework, free of charge, to determine which cybersecurity and privacy controls they should implement and to track their progress.
+            </p>
           </div>
 
           {/* Form - Right Side */}
