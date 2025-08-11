@@ -46,27 +46,11 @@ export default function HeroSection() {
           <div className="relative">
             <Card className="shadow-2xl border">
               <CardContent className="p-6">
-                <div className="flex items-center justify-between mb-6">
-                  <h3 className="font-semibold text-zen-dark">Security Dashboard</h3>
-                  <div className="flex items-center space-x-2">
-                    <div className="w-3 h-3 bg-zen-success rounded-full"></div>
-                    <span className="text-sm text-zen-muted">System Secure</span>
-                  </div>
-                </div>
-                <div className="grid grid-cols-2 gap-4 mb-6">
-                  <div className="bg-zen-light rounded-lg p-4">
-                    <div className="text-2xl font-bold text-zen-dark">98%</div>
-                    <div className="text-sm text-zen-muted">Compliance Score</div>
-                  </div>
-                  <div className="bg-zen-light rounded-lg p-4">
-                    <div className="text-2xl font-bold text-zen-dark">24</div>
-                    <div className="text-sm text-zen-muted">Active Controls</div>
-                  </div>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-sm text-zen-muted">AI Risk Assessment</span>
-                  <div className="text-zen-success font-medium">Low Risk</div>
-                </div>
+                <img 
+                  src="/dashboard-team.jpg" 
+                  alt="Team collaborating on cybersecurity dashboard"
+                  className="w-full rounded-lg"
+                />
               </CardContent>
             </Card>
           </div>
