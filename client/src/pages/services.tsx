@@ -10,7 +10,12 @@ import {
   CheckCircle,
   Users,
   Target,
-  Wrench
+  Wrench,
+  ArrowRight,
+  Star,
+  Shield,
+  TrendingUp,
+  Award
 } from "lucide-react";
 
 export default function Services() {
@@ -61,89 +66,172 @@ export default function Services() {
   ];
 
   return (
-    <div className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h1 className="text-4xl font-bold text-zen-dark mb-4">Our Services</h1>
-          <p className="text-xl text-zen-muted max-w-3xl mx-auto mb-8">
-            Comprehensive cybersecurity and privacy services tailored specifically for Community Development Financial Institutions.
-          </p>
-
-          {/* Early CTA */}
-          <Button 
-            className="bg-zen-orange text-white hover:bg-orange-600 transition-colors" 
-            size="lg"
-            onClick={() => window.location.href = "/contact"}
-          >
-            Schedule Free Consultation
-          </Button>
+    <div>
+      {/* Consulting-Style Hero Section */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-zen-light via-white to-slate-50 py-24 lg:py-32">
+        {/* Background Elements */}
+        <div className="absolute inset-0">
+          <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl"></div>
+          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-zen-orange/10 rounded-full blur-3xl"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-purple-500/5 to-blue-500/5 rounded-full blur-3xl"></div>
         </div>
+        
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Content */}
+            <div className="text-center lg:text-left">
+              {/* Professional Badge */}
+              <div className="inline-flex items-center px-4 py-2 bg-blue-500/10 text-blue-600 rounded-full text-sm font-medium mb-6">
+                <Award className="w-4 h-4 mr-2" />
+                Trusted CDFI Security Experts
+              </div>
+              
+              {/* Main Heading */}
+              <h1 className="text-5xl lg:text-6xl font-bold mb-6">
+                <span className="text-zen-dark leading-tight block">Expert</span>
+                <span className="zen-text-gradient leading-tight block">Cybersecurity</span>
+                <span className="text-zen-dark leading-tight block">Services</span>
+              </h1>
+              
+              {/* Description */}
+              <p className="text-xl text-zen-muted mb-8 leading-relaxed max-w-2xl">
+                Comprehensive cybersecurity and privacy services tailored specifically for Community Development Financial Institutions.
+              </p>
+              
+              {/* Professional Stats */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+                <div className="flex items-center space-x-3 p-3 bg-white/60 backdrop-blur-sm rounded-lg border border-zen-light">
+                  <Shield className="w-5 h-5 text-blue-600" />
+                  <span className="text-sm font-medium text-zen-dark">CDFI Specialized</span>
+                </div>
+                <div className="flex items-center space-x-3 p-3 bg-white/60 backdrop-blur-sm rounded-lg border border-zen-light">
+                  <TrendingUp className="w-5 h-5 text-green-600" />
+                  <span className="text-sm font-medium text-zen-dark">Proven Results</span>
+                </div>
+                <div className="flex items-center space-x-3 p-3 bg-white/60 backdrop-blur-sm rounded-lg border border-zen-light">
+                  <Users className="w-5 h-5 text-purple-600" />
+                  <span className="text-sm font-medium text-zen-dark">Expert Team</span>
+                </div>
+              </div>
+              
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button 
+                  className="bg-zen-orange text-white hover:bg-orange-600 transition-all duration-300 shadow-lg hover:shadow-xl group" 
+                  size="lg"
+                  onClick={() => window.location.href = "/contact"}
+                >
+                  Schedule Free Consultation
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+                <Button 
+                  variant="outline" 
+                  className="border-2 border-zen-dark text-zen-dark hover:bg-zen-dark hover:text-white transition-all duration-300" 
+                  size="lg"
+                >
+                  View Our Approach
+                </Button>
+              </div>
+            </div>
+            
+            {/* Right Visual - Professional Consulting Image */}
+            <div className="relative">
+              <div className="relative z-10">
+                <Card className="shadow-2xl border-0 bg-white/80 backdrop-blur-sm">
+                  <CardContent className="p-6">
+                    <img 
+                      src="/consulting-hero.svg" 
+                      alt="Professional cybersecurity consulting services"
+                      className="w-full rounded-lg"
+                    />
+                  </CardContent>
+                </Card>
+                
+                {/* Floating professional elements */}
+                <div className="absolute -top-4 -right-4 bg-blue-500 text-white p-3 rounded-lg shadow-lg">
+                  <TrendingUp className="w-6 h-6" />
+                </div>
+                <div className="absolute -bottom-4 -left-4 bg-green-500 text-white p-3 rounded-lg shadow-lg">
+                  <Award className="w-6 h-6" />
+                </div>
+                <div className="absolute top-1/2 -right-6 bg-purple-500 text-white p-2 rounded-full shadow-lg">
+                  <Users className="w-4 h-4" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-        {/* About Section */}
-        <div className="bg-zen-light rounded-2xl p-12 mb-16">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl font-semibold text-zen-dark mb-6">
-              Why Choose ZenPrivata?
-            </h2>
-            <p className="text-lg text-zen-muted leading-relaxed">
-              ZenPrivata is the preferred security and privacy provider for CDFIs. We've worked with both CDFI associations and individual CDFIs and know the unique needs that CDFIs have.
+      {/* Main Content Sections */}
+      <div className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* About Section */}
+          <div className="bg-zen-light rounded-2xl p-12 mb-16">
+            <div className="max-w-4xl mx-auto text-center">
+              <h2 className="text-2xl font-semibold text-zen-dark mb-6">
+                Why Choose ZenPrivata?
+              </h2>
+              <p className="text-lg text-zen-muted leading-relaxed">
+                ZenPrivata is the preferred security and privacy provider for CDFIs. We've worked with both CDFI associations and individual CDFIs and know the unique needs that CDFIs have.
+              </p>
+            </div>
+          </div>
+
+          {/* Our Approach */}
+          <div className="mb-16">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-zen-dark mb-4">Our Approach</h2>
+            </div>
+            <div className="grid md:grid-cols-3 gap-8">
+              {approach.map((step, index) => (
+                <Card key={index} className="border hover:shadow-lg transition-all">
+                  <CardContent className="p-8 text-center">
+                    <div className="w-16 h-16 bg-zen-orange bg-opacity-10 rounded-lg flex items-center justify-center mx-auto mb-6">
+                      <step.icon className="text-zen-orange h-8 w-8" />
+                    </div>
+                    <h3 className="text-xl font-semibold text-zen-dark mb-4">{step.title}</h3>
+                    <p className="text-zen-muted">{step.description}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+
+          {/* What We Provide */}
+          <div className="mb-16">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-zen-dark mb-4">What We Provide</h2>
+            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {services.map((service, index) => (
+                <Card key={index} className="border hover:shadow-lg transition-all">
+                  <CardContent className="p-8">
+                    <div className="w-16 h-16 bg-zen-orange bg-opacity-10 rounded-lg flex items-center justify-center mb-6">
+                      <service.icon className="text-zen-orange h-8 w-8" />
+                    </div>
+                    <h3 className="text-xl font-semibold text-zen-dark mb-4">{service.title}</h3>
+                    <p className="text-zen-muted">{service.description}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+
+          {/* CTA Section */}
+          <div className="text-center mt-32 mb-24">
+            <h2 className="text-2xl font-semibold text-zen-dark mb-4">Ready to Secure Your CDFI?</h2>
+            <p className="text-zen-muted mb-8 max-w-2xl mx-auto">
+              Schedule a free consultation to discuss your specific needs and learn how our services can help protect your organization.
             </p>
+            <Button 
+              className="bg-zen-orange text-white hover:bg-orange-600 transition-colors" 
+              size="lg"
+              onClick={() => window.location.href = "/contact"}
+            >
+              Schedule Free Consultation
+            </Button>
           </div>
-        </div>
-
-        {/* Our Approach */}
-        <div className="mb-16">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-zen-dark mb-4">Our Approach</h2>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            {approach.map((step, index) => (
-              <Card key={index} className="border hover:shadow-lg transition-all">
-                <CardContent className="p-8 text-center">
-                  <div className="w-16 h-16 bg-zen-orange bg-opacity-10 rounded-lg flex items-center justify-center mx-auto mb-6">
-                    <step.icon className="text-zen-orange h-8 w-8" />
-                  </div>
-                  <h3 className="text-xl font-semibold text-zen-dark mb-4">{step.title}</h3>
-                  <p className="text-zen-muted">{step.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-
-        {/* What We Provide */}
-        <div className="mb-16">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-zen-dark mb-4">What We Provide</h2>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <Card key={index} className="border hover:shadow-lg transition-all">
-                <CardContent className="p-8">
-                  <div className="w-16 h-16 bg-zen-orange bg-opacity-10 rounded-lg flex items-center justify-center mb-6">
-                    <service.icon className="text-zen-orange h-8 w-8" />
-                  </div>
-                  <h3 className="text-xl font-semibold text-zen-dark mb-4">{service.title}</h3>
-                  <p className="text-zen-muted">{service.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-
-        {/* CTA Section */}
-        <div className="text-center mt-32 mb-24">
-          <h2 className="text-2xl font-semibold text-zen-dark mb-4">Ready to Secure Your CDFI?</h2>
-          <p className="text-zen-muted mb-8 max-w-2xl mx-auto">
-            Schedule a free consultation to discuss your specific needs and learn how our services can help protect your organization.
-          </p>
-          <Button 
-            className="bg-zen-orange text-white hover:bg-orange-600 transition-colors" 
-            size="lg"
-            onClick={() => window.location.href = "/contact"}
-          >
-            Schedule Free Consultation
-          </Button>
         </div>
       </div>
 

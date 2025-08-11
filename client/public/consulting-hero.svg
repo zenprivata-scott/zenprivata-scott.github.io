@@ -1,0 +1,128 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8fafc;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e2e8f0;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f1f5f9;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b35;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff8f4d;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#bgGradient)"/>
+  
+  <!-- Abstract Background Elements -->
+  <circle cx="700" cy="100" r="120" fill="#3b82f6" opacity="0.05"/>
+  <circle cx="150" cy="500" r="80" fill="#ff6b35" opacity="0.08"/>
+  <polygon points="600,400 650,350 700,400 650,450" fill="#10b981" opacity="0.06"/>
+  
+  <!-- Main Conference Table -->
+  <ellipse cx="400" cy="450" rx="280" ry="80" fill="#e2e8f0" opacity="0.6"/>
+  <ellipse cx="400" cy="440" rx="280" ry="80" fill="url(#cardGradient)" filter="url(#shadow)"/>
+  
+  <!-- Professional Figures Around Table -->
+  <!-- Figure 1 - Left -->
+  <g transform="translate(200, 320)">
+    <circle cx="0" cy="0" r="25" fill="#6366f1"/>
+    <rect x="-20" y="20" width="40" height="50" rx="20" fill="#1f2937"/>
+    <rect x="-15" y="25" width="30" height="8" fill="#ffffff" opacity="0.9"/>
+  </g>
+  
+  <!-- Figure 2 - Center -->
+  <g transform="translate(400, 300)">
+    <circle cx="0" cy="0" r="25" fill="#ec4899"/>
+    <rect x="-20" y="20" width="40" height="50" rx="20" fill="#374151"/>
+    <rect x="-15" y="25" width="30" height="8" fill="#ffffff" opacity="0.9"/>
+  </g>
+  
+  <!-- Figure 3 - Right -->
+  <g transform="translate(600, 320)">
+    <circle cx="0" cy="0" r="25" fill="#10b981"/>
+    <rect x="-20" y="20" width="40" height="50" rx="20" fill="#1f2937"/>
+    <rect x="-15" y="25" width="30" height="8" fill="#ffffff" opacity="0.9"/>
+  </g>
+  
+  <!-- Presentation Screen/Chart -->
+  <rect x="250" y="80" width="300" height="180" rx="15" fill="url(#cardGradient)" filter="url(#shadow)"/>
+  <rect x="260" y="90" width="280" height="160" rx="8" fill="#f8fafc"/>
+  
+  <!-- Chart Elements -->
+  <rect x="280" y="200" width="20" height="40" fill="url(#accentGradient)"/>
+  <rect x="320" y="180" width="20" height="60" fill="#3b82f6"/>
+  <rect x="360" y="160" width="20" height="80" fill="#10b981"/>
+  <rect x="400" y="140" width="20" height="100" fill="url(#accentGradient)"/>
+  <rect x="440" y="120" width="20" height="120" fill="#8b5cf6"/>
+  <rect x="480" y="110" width="20" height="130" fill="#3b82f6"/>
+  
+  <!-- Title on screen -->
+  <text x="400" y="120" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#1f2937">CDFI Security Strategy</text>
+  
+  <!-- Floating Elements -->
+  <!-- Security Shield -->
+  <g transform="translate(650, 200)">
+    <circle cx="0" cy="0" r="35" fill="url(#accentGradient)" opacity="0.9" filter="url(#shadow)"/>
+    <path d="M -15 -10 L 0 -20 L 15 -10 L 15 5 Q 15 15 0 20 Q -15 15 -15 5 Z" fill="white"/>
+    <circle cx="0" cy="-2" r="3" fill="url(#accentGradient)"/>
+  </g>
+  
+  <!-- Growth Arrow -->
+  <g transform="translate(120, 180)">
+    <circle cx="0" cy="0" r="30" fill="#10b981" opacity="0.9" filter="url(#shadow)"/>
+    <path d="M -10 5 L 5 -10 L 15 0 L 5 -5 L 5 10 L -10 10 Z" fill="white"/>
+  </g>
+  
+  <!-- Award Badge -->
+  <g transform="translate(700, 350)">
+    <circle cx="0" cy="0" r="25" fill="#8b5cf6" opacity="0.9" filter="url(#shadow)"/>
+    <polygon points="-8,-8 0,-15 8,-8 12,0 8,8 0,15 -8,8 -12,0" fill="white"/>
+    <circle cx="0" cy="0" r="4" fill="#8b5cf6"/>
+  </g>
+  
+  <!-- Laptops on Table -->
+  <g transform="translate(350, 430)">
+    <rect x="0" y="0" width="30" height="20" rx="2" fill="#374151"/>
+    <rect x="2" y="2" width="26" height="16" rx="1" fill="#4ade80"/>
+    <rect x="13" y="22" width="4" height="3" fill="#6b7280"/>
+  </g>
+  
+  <g transform="translate(420, 435)">
+    <rect x="0" y="0" width="30" height="20" rx="2" fill="#374151"/>
+    <rect x="2" y="2" width="26" height="16" rx="1" fill="#60a5fa"/>
+    <rect x="13" y="22" width="4" height="3" fill="#6b7280"/>
+  </g>
+  
+  <!-- Documents/Papers -->
+  <rect x="480" y="420" width="25" height="30" rx="2" fill="white" filter="url(#shadow)"/>
+  <rect x="485" y="425" width="15" height="2" fill="#d1d5db"/>
+  <rect x="485" y="430" width="12" height="2" fill="#d1d5db"/>
+  <rect x="485" y="435" width="18" height="2" fill="#d1d5db"/>
+  
+  <!-- Coffee Cups -->
+  <g transform="translate(320, 425)">
+    <ellipse cx="0" cy="0" rx="8" ry="3" fill="#8b4513"/>
+    <rect x="-6" y="-5" width="12" height="8" fill="#d2691e"/>
+    <ellipse cx="0" cy="-5" rx="6" ry="2" fill="#daa520"/>
+    <rect x="8" y="-2" width="5" height="2" rx="1" fill="#8b4513"/>
+  </g>
+  
+  <!-- Connecting Lines (subtle collaboration indicators) -->
+  <path d="M 200 350 Q 300 320 400 330" stroke="#e5e7eb" stroke-width="2" fill="none" opacity="0.6"/>
+  <path d="M 400 330 Q 500 320 600 350" stroke="#e5e7eb" stroke-width="2" fill="none" opacity="0.6"/>
+  
+  <!-- Subtle Grid Pattern -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#e5e7eb" stroke-width="0.5" opacity="0.3"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="600" fill="url(#grid)"/>
+</svg>
