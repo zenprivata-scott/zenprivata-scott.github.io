@@ -3,6 +3,7 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertLeadSchema, insertContactSchema } from "@shared/schema";
 import { z } from "zod";
+import { Resend } from "resend";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Lead magnet endpoint
@@ -13,15 +14,23 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       // Send notification email to Scott@ZenPrivata.com
       try {
-        // In a real application, you would use an email service like SendGrid, Nodemailer, etc.
-        // For now, we'll log the notification that would be sent
-        console.log(`EMAIL NOTIFICATION TO scott@zenprivata.com:
-        Subject: New CDFI Framework Download
-        User Email: ${leadData.email}
-        Organization: ${leadData.organization || 'Not provided'}
-        Downloaded: CDFI Security and Privacy Framework
-        Timestamp: ${new Date().toISOString()}
-      `);
+        const resendApiKey = process.env.RESEND_API_KEY || "re_bri5VXwB_5Aq87VVEbicx7Mk5VgjZoTfJ";
+        const resend = new Resend(resendApiKey);
+        
+        await resend.emails.send({
+          from: 'ZenPrivata <noreply@zenprivata.com>',
+          to: ['scott@zenprivata.com'],
+          subject: 'New CDFI Framework Download',
+          html: `
+            <h2>New CDFI Framework Download</h2>
+            <p><strong>User Email:</strong> ${leadData.email}</p>
+            <p><strong>Organization:</strong> ${leadData.organization || 'Not provided'}</p>
+            <p><strong>Downloaded:</strong> CDFI Security and Privacy Framework</p>
+            <hr>
+            <p><em>Downloaded at: ${new Date().toISOString()}</em></p>
+          `,
+        });
+        console.log('Lead notification email sent successfully');
       } catch (emailError) {
         console.error('Error sending notification email:', emailError);
         // Don't fail the request if email fails
@@ -47,16 +56,30 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const contactData = insertContactSchema.parse(req.body);
       const contact = await storage.createContact(contactData);
 
-      // Send email to hello@zenprivata.com
-      const resendApiKey = process.env.RESEND_API_KEY || process.env.RESEND_KEY || "default_resend_key";
+      // Send email to hello@zenprivata.com using Resend
+      const resendApiKey = process.env.RESEND_API_KEY || "re_bri5VXwB_5Aq87VVEbicx7Mk5VgjZoTfJ";
+      const resend = new Resend(resendApiKey);
 
-      // TODO: Implement actual Resend integration
-      console.log(`Sending contact form submission to hello@zenprivata.com using Resend API key: ${resendApiKey}`);
-      console.log(`Contact details:`, {
-        email: contact.email,
-        organization: contact.organization,
-        message: contact.message
-      });
+      try {
+        await resend.emails.send({
+          from: 'ZenPrivata <noreply@zenprivata.com>',
+          to: ['hello@zenprivata.com'],
+          subject: `New Contact Form Submission from ${contact.organization}`,
+          html: `
+            <h2>New Contact Form Submission</h2>
+            <p><strong>Organization:</strong> ${contact.organization}</p>
+            <p><strong>Email:</strong> ${contact.email}</p>
+            <p><strong>Message:</strong></p>
+            <p>${contact.message.replace(/\n/g, '<br>')}</p>
+            <hr>
+            <p><em>Submitted at: ${new Date().toISOString()}</em></p>
+          `,
+        });
+        console.log('Contact form email sent successfully');
+      } catch (emailError) {
+        console.error('Error sending contact form email:', emailError);
+        // Don't fail the request if email fails
+      }
 
       res.json({ 
         success: true, 
@@ -77,10 +100,28 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const { name, email, organization } = req.body;
 
-      const resendApiKey = process.env.RESEND_API_KEY || process.env.RESEND_KEY || "default_resend_key";
+      const resendApiKey = process.env.RESEND_API_KEY || "re_bri5VXwB_5Aq87VVEbicx7Mk5VgjZoTfJ";
+      const resend = new Resend(resendApiKey);
 
-      // TODO: Implement actual Resend integration for demo requests
-      console.log(`Demo request from ${name} (${email}) at ${organization} using Resend API key: ${resendApiKey}`);
+      try {
+        await resend.emails.send({
+          from: 'ZenPrivata <noreply@zenprivata.com>',
+          to: ['hello@zenprivata.com'],
+          subject: `Demo Request from ${organization}`,
+          html: `
+            <h2>New Demo Request</h2>
+            <p><strong>Name:</strong> ${name}</p>
+            <p><strong>Email:</strong> ${email}</p>
+            <p><strong>Organization:</strong> ${organization}</p>
+            <hr>
+            <p><em>Requested at: ${new Date().toISOString()}</em></p>
+          `,
+        });
+        console.log('Demo request email sent successfully');
+      } catch (emailError) {
+        console.error('Error sending demo request email:', emailError);
+        // Don't fail the request if email fails
+      }
 
       res.json({ 
         success: true, 
