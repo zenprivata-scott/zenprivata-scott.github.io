@@ -62,7 +62,7 @@ export default function Navigation() {
               Blog
             </a>
             <Button className="bg-zen-orange text-white hover:bg-orange-600 transition-colors">
-              Request Free Demo
+              Request Free Consultation
             </Button>
           </div>
 
@@ -106,7 +106,7 @@ export default function Navigation() {
                 Blog
               </a>
               <Button className="bg-zen-orange text-white hover:bg-orange-600 transition-colors w-full text-left">
-                Request Free Demo
+                Request Free Consultation
               </Button>
             </div>
           </div>

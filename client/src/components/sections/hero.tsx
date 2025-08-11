@@ -30,7 +30,7 @@ export default function HeroSection() {
                 size="lg"
               >
                 <Play className="mr-2 h-4 w-4" />
-                Request Free Demo
+                Request Free Consultation
               </Button>
               <Button
                 onClick={handleDownloadFramework}

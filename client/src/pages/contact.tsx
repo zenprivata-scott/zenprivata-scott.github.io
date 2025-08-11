@@ -63,7 +63,7 @@ export default function Contact() {
     submitContactMutation.mutate(data);
   };
 
-  
+
 
   if (isSubmitted) {
     return (
@@ -118,7 +118,7 @@ export default function Contact() {
                       </FormItem>
                     )}
                   />
-                  
+
                   <FormField
                     control={form.control}
                     name="organization"
@@ -132,7 +132,7 @@ export default function Contact() {
                       </FormItem>
                     )}
                   />
-                  
+
                   <FormField
                     control={form.control}
                     name="message"
@@ -150,16 +150,17 @@ export default function Contact() {
                       </FormItem>
                     )}
                   />
-                  
+
                   <FormField
                     control={form.control}
                     name="consent"
                     render={({ field }) => (
-                      <FormItem className="flex flex-row items-start space-x-3 space-y-0">
+                      <FormItem className="flex items-start space-x-3">
                         <FormControl>
                           <Checkbox
                             checked={field.value}
                             onCheckedChange={field.onChange}
+                            className="mt-1"
                           />
                         </FormControl>
                         <div className="space-y-1 leading-none">
@@ -175,7 +176,7 @@ export default function Contact() {
                       </FormItem>
                     )}
                   />
-                  
+
                   <Button
                     type="submit"
                     className="w-full bg-zen-orange text-white hover:bg-orange-600 transition-colors"

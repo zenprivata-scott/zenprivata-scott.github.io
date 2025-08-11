@@ -132,7 +132,7 @@ export default function Services() {
         </div>
 
         {/* CTA Section */}
-        <div className="text-center">
+        <div className="text-center mb-16">
           <h2 className="text-2xl font-semibold text-zen-dark mb-4">Ready to Secure Your CDFI?</h2>
           <p className="text-zen-muted mb-8 max-w-2xl mx-auto">
             Schedule a free consultation to discuss your specific needs and learn how our services can help protect your organization.
