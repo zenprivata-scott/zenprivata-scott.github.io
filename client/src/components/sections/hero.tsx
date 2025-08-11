@@ -50,10 +50,6 @@ export default function HeroSection() {
                   src="/dashboard-team.jpg" 
                   alt="Team collaborating on cybersecurity dashboard"
                   className="w-full rounded-lg"
-                  onError={(e) => {
-                    console.error('Image failed to load:', e);
-                    e.currentTarget.style.display = 'none';
-                  }}
                 />
               </CardContent>
             </Card>
