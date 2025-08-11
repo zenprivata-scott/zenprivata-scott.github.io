@@ -43,6 +43,7 @@ export default function Contact() {
     },
     onSuccess: () => {
       setIsSubmitted(true);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
       toast({
         title: "Message Sent!",
         description: "Thank you for your message! We'll get back to you soon.",
