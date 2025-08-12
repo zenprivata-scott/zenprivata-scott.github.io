@@ -13,6 +13,7 @@ import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 
 const leadFormSchema = z.object({
+  firstName: z.string().min(1, "First name is required"),
   email: z.string().email("Invalid email address"),
   organization: z.string().min(1, "Organization name is required"),
   gdprConsent: z.boolean().refine(val => val === true, "You must consent to proceed"),
@@ -27,6 +28,7 @@ export default function LeadMagnetSection() {
   const form = useForm<LeadFormData>({
     resolver: zodResolver(leadFormSchema),
     defaultValues: {
+      firstName: "",
       email: "",
       organization: "",
       gdprConsent: false,
@@ -92,7 +94,7 @@ export default function LeadMagnetSection() {
           {/* Text Content - Left Side */}
           <div className="space-y-4">
             <p className="text-base text-zen-muted leading-relaxed">
-              ZenPrivata was commissioned by the African American Alliance of CDFI CEOs to develop a security and privacy framework for Community Development Financial Institutions (CDFI) as part of their Women-Led Initiative Technology Enhancement Project.
+              ZenPrivata was commissioned by the African American Alliance of″]CDFI CEOs to develop a security and privacy framework for Community Development Financial Institutions (CDFI) as part of their Women-Led Initiative Technology Enhancement Project.
             </p>
             <p className="text-base text-zen-muted leading-relaxed">
               The CDFI Security and Privacy Framework (CDFI-SPF) was created specifically with the needs and abilities of CDFIs in mind. We met with CDFIs and learned what dangers they face, what risks would be most harmful to CDFIs, what systems CDFIs use and what their attack surface looked like, and what controls CDFIs typically already had in place.
@@ -108,24 +110,41 @@ export default function LeadMagnetSection() {
               <CardContent className="p-8">
                 <Form {...form}>
                   <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-                    <FormField
-                      control={form.control}
-                      name="email"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormControl>
-                            <Input type="email" placeholder="Work Email Address" {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
+                    <div className="grid grid-cols-2 gap-4">
+                      <FormField
+                        control={form.control}
+                        name="firstName"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>First Name *</FormLabel>
+                            <FormControl>
+                              <Input placeholder="Enter your first name" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      <FormField
+                        control={form.control}
+                        name="email"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Email *</FormLabel>
+                            <FormControl>
+                              <Input type="email" placeholder="Enter your email" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
 
                     <FormField
                       control={form.control}
                       name="organization"
                       render={({ field }) => (
                         <FormItem>
+                          <FormLabel>Organization *</FormLabel>
                           <FormControl>
                             <Input placeholder="CDFI Organization Name" {...field} />
                           </FormControl>
