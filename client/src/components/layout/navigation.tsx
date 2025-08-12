@@ -62,6 +62,7 @@ export default function Navigation() {
               Blog
             </a>
             <Button 
+              variant="no-hover"
               className="bg-zen-orange text-white hover:bg-orange-600 transition-colors"
               onClick={() => {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -115,6 +116,7 @@ export default function Navigation() {
                 Blog
               </a>
               <Button 
+                variant="no-hover"
                 className="bg-zen-orange text-white hover:bg-orange-600 transition-colors w-full text-left"
                 onClick={() => {
                   window.scrollTo({ top: 0, behavior: 'smooth' });
