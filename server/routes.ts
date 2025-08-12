@@ -12,14 +12,45 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const leadData = insertLeadSchema.parse(req.body);
       const lead = await storage.createLead(leadData);
 
-      // Send notification email to Scott@ZenPrivata.com
+      // Send PDF file to user and notification to hello@zenprivata.com
       try {
         const resendApiKey = process.env.RESEND_API_KEY || "re_bri5VXwB_5Aq87VVEbicx7Mk5VgjZoTfJ";
         const resend = new Resend(resendApiKey);
+        const fs = require('fs');
+        const path = require('path');
         
+        // Read the PDF file
+        const pdfPath = path.join(process.cwd(), 'client/public/CDFI-SPF.pdf');
+        const pdfBuffer = fs.readFileSync(pdfPath);
+        
+        // Send PDF to user
         await resend.emails.send({
           from: 'ZenPrivata <noreply@zenprivata.com>',
-          to: ['scott@zenprivata.com'],
+          to: [leadData.email],
+          subject: 'Your CDFI Security and Privacy Framework Download',
+          html: `
+            <h2>Thank you for downloading the CDFI Security and Privacy Framework!</h2>
+            <p>Dear ${leadData.organization ? `${leadData.organization} team` : 'Community Development Finance Professional'},</p>
+            <p>Thank you for your interest in strengthening your organization's cybersecurity posture. Please find the CDFI Security and Privacy Framework attached to this email.</p>
+            <p>This framework was specifically designed with the needs and capabilities of CDFIs in mind, providing practical guidance for implementing effective cybersecurity and privacy controls.</p>
+            <p>If you have any questions about the framework or would like to discuss how ZenPrivata can help your organization implement these controls, please don't hesitate to reach out to us at <a href="mailto:hello@zenprivata.com">hello@zenprivata.com</a>.</p>
+            <p>Best regards,<br>The ZenPrivata Team</p>
+            <hr>
+            <p><em>Visit us at <a href="https://zenprivata.com">zenprivata.com</a></em></p>
+          `,
+          attachments: [
+            {
+              filename: 'CDFI-Security-Privacy-Framework.pdf',
+              content: pdfBuffer,
+            },
+          ],
+        });
+        console.log('PDF sent to user successfully');
+        
+        // Send notification email to hello@zenprivata.com
+        await resend.emails.send({
+          from: 'ZenPrivata <noreply@zenprivata.com>',
+          to: ['hello@zenprivata.com'],
           subject: 'New CDFI Framework Download',
           html: `
             <h2>New CDFI Framework Download</h2>
@@ -32,7 +63,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         });
         console.log('Lead notification email sent successfully');
       } catch (emailError) {
-        console.error('Error sending notification email:', emailError);
+        console.error('Error sending emails:', emailError);
         // Don't fail the request if email fails
       }
 
