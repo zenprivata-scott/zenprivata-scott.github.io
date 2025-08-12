@@ -26,7 +26,7 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link href="/" className="flex-shrink-0 flex items-center">
+          <Link href="/" className="flex-shrink-0 flex items-center" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
             <div className="flex items-center space-x-3">
               <img src={logoImage} alt="ZenPrivata Logo" className="w-8 h-8 object-contain" />
               <div>
@@ -43,6 +43,7 @@ export default function Navigation() {
               <Link
                 key={item.path}
                 href={item.path}
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                 className={`transition-colors font-medium ${
                   isActive(item.path)
                     ? "text-zen-dark"
@@ -62,7 +63,10 @@ export default function Navigation() {
             </a>
             <Button 
               className="bg-zen-orange text-white hover:bg-orange-600 transition-colors"
-              onClick={() => window.location.href = "/contact"}
+              onClick={() => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                window.location.href = "/contact";
+              }}
             >
               Request Free Consultation
             </Button>
@@ -89,7 +93,10 @@ export default function Navigation() {
                 <Link
                   key={item.path}
                   href={item.path}
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }}
                   className={`transition-colors font-medium ${
                     isActive(item.path)
                       ? "text-zen-dark"
@@ -109,7 +116,10 @@ export default function Navigation() {
               </a>
               <Button 
                 className="bg-zen-orange text-white hover:bg-orange-600 transition-colors w-full text-left"
-                onClick={() => window.location.href = "/contact"}
+                onClick={() => {
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                  window.location.href = "/contact";
+                }}
               >
                 Request Free Consultation
               </Button>
