@@ -11,7 +11,6 @@ export const users = pgTable("users", {
 
 export const leads = pgTable("leads", {
   id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
-  firstName: text("first_name").notNull(),
   email: text("email").notNull(),
   organization: text("organization"),
   gdprConsent: boolean("gdpr_consent").notNull().default(false),

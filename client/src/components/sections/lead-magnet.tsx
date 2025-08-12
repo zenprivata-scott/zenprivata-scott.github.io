@@ -13,7 +13,6 @@ import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 
 const leadFormSchema = z.object({
-  firstName: z.string().min(1, "First name is required"),
   email: z.string().email("Invalid email address"),
   organization: z.string().min(1, "Organization name is required"),
   gdprConsent: z.boolean().refine(val => val === true, "You must consent to proceed"),
@@ -28,7 +27,6 @@ export default function LeadMagnetSection() {
   const form = useForm<LeadFormData>({
     resolver: zodResolver(leadFormSchema),
     defaultValues: {
-      firstName: "",
       email: "",
       organization: "",
       gdprConsent: false,
@@ -110,34 +108,19 @@ export default function LeadMagnetSection() {
               <CardContent className="p-8">
                 <Form {...form}>
                   <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-                    <div className="grid grid-cols-2 gap-4">
-                      <FormField
-                        control={form.control}
-                        name="firstName"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>First Name *</FormLabel>
-                            <FormControl>
-                              <Input placeholder="Enter your first name" {...field} />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                      <FormField
-                        control={form.control}
-                        name="email"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Email *</FormLabel>
-                            <FormControl>
-                              <Input type="email" placeholder="Enter your email" {...field} />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                    </div>
+                    <FormField
+                      control={form.control}
+                      name="email"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Email *</FormLabel>
+                          <FormControl>
+                            <Input type="email" placeholder="Enter your email" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
 
                     <FormField
                       control={form.control}
