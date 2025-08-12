@@ -110,8 +110,9 @@ export default function Services() {
                 </Button>
                 <Button 
                   variant="outline" 
-                  className="border-2 border-zen-dark text-zen-dark hover:bg-zen-dark hover:text-white transition-all duration-300" 
+                  className="border-2 border-zen-orange text-zen-orange hover:bg-zen-orange hover:text-white transition-all duration-300" 
                   size="lg"
+                  onClick={() => document.getElementById('our-approach')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   View Our Approach
                 </Button>
@@ -170,7 +171,7 @@ export default function Services() {
           </div>
 
           {/* Our Approach */}
-          <div className="mb-16">
+          <div id="our-approach" className="mb-16">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-zen-dark mb-4">Our Approach</h2>
             </div>
