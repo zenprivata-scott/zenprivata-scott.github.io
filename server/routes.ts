@@ -18,14 +18,14 @@ export async function registerRoutes(app: Express): Promise<Server> {
         const resend = new Resend(resendApiKey);
         const fs = await import('fs');
         const path = await import('path');
-        
+
         // Read the PDF file
         const pdfPath = path.join(process.cwd(), 'client/public/CDFI-SPF.pdf');
         const pdfBuffer = fs.readFileSync(pdfPath);
-        
+
         // Send PDF to user
         await resend.emails.send({
-          from: 'ZenPrivata <noreply@zenprivata.com>',
+          from: 'ZenPrivata <hello@zenprivata.com>',
           to: [leadData.email],
           subject: 'Your CDFI Security and Privacy Framework Download',
           html: `
@@ -46,10 +46,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
           ],
         });
         console.log('PDF sent to user successfully');
-        
+
         // Send notification email to hello@zenprivata.com
         await resend.emails.send({
-          from: 'ZenPrivata <noreply@zenprivata.com>',
+          from: 'ZenPrivata <hello@zenprivata.com>',
           to: ['hello@zenprivata.com'],
           subject: 'New CDFI Framework Download',
           html: `
@@ -93,7 +93,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       try {
         await resend.emails.send({
-          from: 'ZenPrivata <noreply@zenprivata.com>',
+          from: 'ZenPrivata <hello@zenprivata.com>',
           to: ['hello@zenprivata.com'],
           subject: `New Contact Form Submission from ${contact.organization}`,
           html: `
@@ -136,7 +136,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       try {
         await resend.emails.send({
-          from: 'ZenPrivata <noreply@zenprivata.com>',
+          from: 'ZenPrivata <hello@zenprivata.com>',
           to: ['hello@zenprivata.com'],
           subject: `Demo Request from ${organization}`,
           html: `
