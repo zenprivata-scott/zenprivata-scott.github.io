@@ -60,6 +60,7 @@ export default function Product() {
                   variant="outline" 
                   className="border-2 border-zen-orange text-zen-orange hover:bg-zen-orange hover:text-white transition-all duration-300" 
                   size="lg"
+                  onClick={() => document.getElementById('comprehensive-dashboard')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   View Platform Features
                 </Button>
@@ -107,7 +108,7 @@ export default function Product() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="space-y-16">
             {/* Dashboard Overview */}
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div id="comprehensive-dashboard" className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
                 <h2 className="text-2xl font-semibold text-zen-dark mb-4">
                   Comprehensive Security Dashboard
