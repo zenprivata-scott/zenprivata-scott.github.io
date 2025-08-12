@@ -98,21 +98,7 @@ export default function Services() {
                 Comprehensive cybersecurity and privacy services tailored specifically for Community Development Financial Institutions.
               </p>
               
-              {/* Professional Stats */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
-                <div className="flex items-center space-x-3 p-3 bg-white/60 backdrop-blur-sm rounded-lg border border-zen-light">
-                  <Shield className="w-5 h-5 text-blue-600" />
-                  <span className="text-sm font-medium text-zen-dark">CDFI Specialized</span>
-                </div>
-                <div className="flex items-center space-x-3 p-3 bg-white/60 backdrop-blur-sm rounded-lg border border-zen-light">
-                  <TrendingUp className="w-5 h-5 text-green-600" />
-                  <span className="text-sm font-medium text-zen-dark">Proven Results</span>
-                </div>
-                <div className="flex items-center space-x-3 p-3 bg-white/60 backdrop-blur-sm rounded-lg border border-zen-light">
-                  <Users className="w-5 h-5 text-purple-600" />
-                  <span className="text-sm font-medium text-zen-dark">Expert Team</span>
-                </div>
-              </div>
+              
               
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4">
@@ -146,17 +132,24 @@ export default function Services() {
                     />
                   </CardContent>
                 </Card>
-                
-                {/* Floating professional elements */}
-                <div className="absolute -top-4 -right-4 bg-blue-500 text-white p-3 rounded-lg shadow-lg">
-                  <TrendingUp className="w-6 h-6" />
-                </div>
-                <div className="absolute -bottom-4 -left-4 bg-green-500 text-white p-3 rounded-lg shadow-lg">
-                  <Award className="w-6 h-6" />
-                </div>
-                <div className="absolute top-1/2 -right-6 bg-purple-500 text-white p-2 rounded-full shadow-lg">
-                  <Users className="w-4 h-4" />
-                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Professional Stats - Centered at Bottom */}
+          <div className="mt-16 flex justify-center">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl">
+              <div className="flex items-center space-x-3 p-3 bg-white/60 backdrop-blur-sm rounded-lg border border-zen-light">
+                <Shield className="w-5 h-5 text-blue-600" />
+                <span className="text-sm font-medium text-zen-dark">CDFI Specialized</span>
+              </div>
+              <div className="flex items-center space-x-3 p-3 bg-white/60 backdrop-blur-sm rounded-lg border border-zen-light">
+                <TrendingUp className="w-5 h-5 text-green-600" />
+                <span className="text-sm font-medium text-zen-dark">Proven Results</span>
+              </div>
+              <div className="flex items-center space-x-3 p-3 bg-white/60 backdrop-blur-sm rounded-lg border border-zen-light">
+                <Users className="w-5 h-5 text-purple-600" />
+                <span className="text-sm font-medium text-zen-dark">Expert Team</span>
               </div>
             </div>
           </div>
