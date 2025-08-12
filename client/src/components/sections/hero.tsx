@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Play, Download } from "lucide-react";
+import { Play, Download, Star } from "lucide-react";
 
 export default function HeroSection() {
   const handleRequestDemo = () => {
@@ -18,6 +18,12 @@ export default function HeroSection() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Content */}
           <div className="space-y-8 lg:pr-8">
+            {/* Trust badge */}
+            <div className="inline-flex items-center space-x-2 bg-orange-100 px-4 py-2 rounded-full">
+              <Star className="w-4 h-4 text-orange-500 fill-orange-500" />
+              <span className="text-sm font-medium text-orange-700">Trusted by CDFIs Nationwide</span>
+            </div>
+
             {/* Main headline */}
             <div>
               <h1 className="text-5xl lg:text-6xl font-bold leading-tight mb-6">
