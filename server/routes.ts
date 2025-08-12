@@ -16,8 +16,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
       try {
         const resendApiKey = process.env.RESEND_API_KEY || "re_bri5VXwB_5Aq87VVEbicx7Mk5VgjZoTfJ";
         const resend = new Resend(resendApiKey);
-        const fs = require('fs');
-        const path = require('path');
+        const fs = await import('fs');
+        const path = await import('path');
         
         // Read the PDF file
         const pdfPath = path.join(process.cwd(), 'client/public/CDFI-SPF.pdf');
