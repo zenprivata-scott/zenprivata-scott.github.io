@@ -47,10 +47,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
         });
         console.log('PDF sent to user successfully');
 
-        // Send notification email to hello@zenprivata.com
+        // Send notification email to scott@zenprivata.com
         await resend.emails.send({
           from: 'ZenPrivata <hello@zenprivata.com>',
-          to: ['hello@zenprivata.com'],
+          to: ['scott@zenprivata.com'],
           subject: 'New CDFI Framework Download',
           html: `
             <h2>New CDFI Framework Download</h2>
@@ -94,7 +94,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       try {
         await resend.emails.send({
           from: 'ZenPrivata <hello@zenprivata.com>',
-          to: ['hello@zenprivata.com'],
+          to: ['scott@zenprivata.com'],
           subject: `New Contact Form Submission from ${contact.organization}`,
           html: `
             <h2>New Contact Form Submission</h2>
@@ -137,7 +137,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       try {
         await resend.emails.send({
           from: 'ZenPrivata <hello@zenprivata.com>',
-          to: ['hello@zenprivata.com'],
+          to: ['scott@zenprivata.com'],
           subject: `Demo Request from ${organization}`,
           html: `
             <h2>New Demo Request</h2>
