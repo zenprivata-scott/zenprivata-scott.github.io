@@ -36,12 +36,6 @@ export default function Product() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
             <div className="text-center lg:text-left">
-              {/* Badge */}
-              <div className="inline-flex items-center px-4 py-2 bg-zen-orange/10 text-zen-orange rounded-full text-sm font-medium mb-6">
-                <Star className="w-4 h-4 mr-2 fill-current" />
-                Trusted by CDFIs Nationwide
-              </div>
-              
               {/* Main Heading */}
               <h1 className="text-5xl lg:text-6xl font-bold mb-6">
                 <span className="text-zen-dark leading-tight block">CDFI Security</span>
@@ -52,22 +46,6 @@ export default function Product() {
               <p className="text-xl text-zen-muted mb-8 leading-relaxed max-w-2xl">
                 Build, manage, and simplify your CDFI's cybersecurity program using our platform which was specifically designed for CDFIs.
               </p>
-              
-              {/* Features Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
-                <div className="flex items-center space-x-3 p-3 bg-white/50 backdrop-blur-sm rounded-lg border border-zen-light">
-                  <Shield className="w-5 h-5 text-zen-orange" />
-                  <span className="text-sm font-medium text-zen-dark">CDFI-Focused</span>
-                </div>
-                <div className="flex items-center space-x-3 p-3 bg-white/50 backdrop-blur-sm rounded-lg border border-zen-light">
-                  <Zap className="w-5 h-5 text-zen-orange" />
-                  <span className="text-sm font-medium text-zen-dark">AI-Powered</span>
-                </div>
-                <div className="flex items-center space-x-3 p-3 bg-white/50 backdrop-blur-sm rounded-lg border border-zen-light">
-                  <Users className="w-5 h-5 text-zen-orange" />
-                  <span className="text-sm font-medium text-zen-dark">Expert Support</span>
-                </div>
-              </div>
               
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4">
@@ -100,14 +78,24 @@ export default function Product() {
                     />
                   </CardContent>
                 </Card>
-                
-                {/* Floating elements */}
-                <div className="absolute -top-4 -right-4 bg-zen-orange text-white p-3 rounded-lg shadow-lg">
-                  <Shield className="w-6 h-6" />
-                </div>
-                <div className="absolute -bottom-4 -left-4 bg-blue-500 text-white p-3 rounded-lg shadow-lg">
-                  <Zap className="w-6 h-6" />
-                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Features Grid - Centered at Bottom */}
+          <div className="mt-16 flex justify-center">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl">
+              <div className="flex items-center space-x-3 p-3 bg-white/50 backdrop-blur-sm rounded-lg border border-zen-light">
+                <Shield className="w-5 h-5 text-zen-orange" />
+                <span className="text-sm font-medium text-zen-dark">CDFI-Focused</span>
+              </div>
+              <div className="flex items-center space-x-3 p-3 bg-white/50 backdrop-blur-sm rounded-lg border border-zen-light">
+                <Zap className="w-5 h-5 text-zen-orange" />
+                <span className="text-sm font-medium text-zen-dark">AI-Powered</span>
+              </div>
+              <div className="flex items-center space-x-3 p-3 bg-white/50 backdrop-blur-sm rounded-lg border border-zen-light">
+                <Users className="w-5 h-5 text-zen-orange" />
+                <span className="text-sm font-medium text-zen-dark">Expert Support</span>
               </div>
             </div>
           </div>
