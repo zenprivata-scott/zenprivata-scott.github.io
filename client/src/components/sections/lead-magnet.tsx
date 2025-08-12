@@ -140,7 +140,7 @@ export default function LeadMagnetSection() {
                       control={form.control}
                       name="gdprConsent"
                       render={({ field }) => (
-                        <FormItem className="flex items-start space-x-2 text-left">
+                        <FormItem className="flex items-center space-x-2 text-left">
                           <FormControl>
                             <Checkbox
                               checked={field.value}
@@ -148,11 +148,7 @@ export default function LeadMagnetSection() {
                             />
                           </FormControl>
                           <div className="text-sm text-zen-muted">
-                            I consent to receiving communications from ZenPrivata and agree to the processing of my personal data as outlined in the{" "}
-                            <a href="#privacy" className="text-zen-orange underline">
-                              Privacy Policy
-                            </a>
-                            .
+                            I consent to receiving communications from ZenPrivata.
                           </div>
                           <FormMessage />
                         </FormItem>

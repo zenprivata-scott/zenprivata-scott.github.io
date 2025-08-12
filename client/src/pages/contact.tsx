@@ -155,21 +155,16 @@ export default function Contact() {
                     control={form.control}
                     name="consent"
                     render={({ field }) => (
-                      <FormItem className="flex items-start space-x-3">
+                      <FormItem className="flex items-center space-x-3">
                         <FormControl>
                           <Checkbox
                             checked={field.value}
                             onCheckedChange={field.onChange}
-                            className="mt-1"
                           />
                         </FormControl>
                         <div className="space-y-1 leading-none">
                           <div className="text-sm text-zen-muted">
-                            I consent to ZenPrivata contacting me about my inquiry and agree to the processing of my personal data as outlined in the{" "}
-                            <a href="#privacy" className="text-zen-orange underline">
-                              Privacy Policy
-                            </a>
-                            .
+                            I consent to receiving communications from ZenPrivata.
                           </div>
                           <FormMessage />
                         </div>
