@@ -43,7 +43,7 @@ export default function HeroSection() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Button
                 onClick={handleRequestDemo}
-                className="bg-gradient-to-r from-orange-500 to-orange-600 text-white hover:from-orange-600 hover:to-orange-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                className="bg-zen-orange text-white hover:bg-orange-600 transition-all duration-300 shadow-lg hover:shadow-xl"
                 size="lg"
               >
                 <Play className="mr-2 h-5 w-5" />
@@ -52,7 +52,7 @@ export default function HeroSection() {
               <Button
                 onClick={handleDownloadFramework}
                 variant="outline"
-                className="border-2 border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400 transition-all duration-300"
+                className="border-2 border-zen-orange text-zen-orange hover:bg-zen-orange hover:text-white transition-all duration-300"
                 size="lg"
               >
                 <Download className="mr-2 h-5 w-5" />
