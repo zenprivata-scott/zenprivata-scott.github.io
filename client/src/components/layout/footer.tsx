@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer className="bg-zen-dark text-white py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-3 gap-8">
           {/* Company Info */}
           <div className="md:col-span-2">
             <div className="flex items-center space-x-3 mb-4">
@@ -43,56 +43,29 @@ export default function Footer() {
             <h4 className="font-semibold text-white mb-4">Quick Links</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/" className="text-gray-400 hover:text-zen-orange transition-colors">
+                <Link href="/" className="text-gray-400 hover:text-zen-orange transition-colors" onClick={() => window.scrollTo(0, 0)}>
                   Home
                 </Link>
               </li>
               <li>
-                <Link href="/product" className="text-gray-400 hover:text-zen-orange transition-colors">
+                <Link href="/product" className="text-gray-400 hover:text-zen-orange transition-colors" onClick={() => window.scrollTo(0, 0)}>
                   Product
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="text-gray-400 hover:text-zen-orange transition-colors">
+                <Link href="/services" className="text-gray-400 hover:text-zen-orange transition-colors" onClick={() => window.scrollTo(0, 0)}>
                   Services
                 </Link>
               </li>
               <li>
-                <Link href="/team" className="text-gray-400 hover:text-zen-orange transition-colors">
+                <Link href="/team" className="text-gray-400 hover:text-zen-orange transition-colors" onClick={() => window.scrollTo(0, 0)}>
                   Team
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-gray-400 hover:text-zen-orange transition-colors">
+                <Link href="/contact" className="text-gray-400 hover:text-zen-orange transition-colors" onClick={() => window.scrollTo(0, 0)}>
                   Contact
                 </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Legal */}
-          <div>
-            <h4 className="font-semibold text-white mb-4">Legal</h4>
-            <ul className="space-y-2">
-              <li>
-                <a href="#privacy" className="text-gray-400 hover:text-zen-orange transition-colors">
-                  Privacy Policy
-                </a>
-              </li>
-              <li>
-                <a href="#terms" className="text-gray-400 hover:text-zen-orange transition-colors">
-                  Terms of Service
-                </a>
-              </li>
-              <li>
-                <a href="#cookies" className="text-gray-400 hover:text-zen-orange transition-colors">
-                  Cookie Policy
-                </a>
-              </li>
-              <li>
-                <a href="#security" className="text-gray-400 hover:text-zen-orange transition-colors">
-                  Security Policy
-                </a>
               </li>
             </ul>
           </div>

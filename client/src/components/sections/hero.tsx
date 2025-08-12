@@ -28,9 +28,9 @@ export default function HeroSection() {
             <div>
               <h1 className="text-4xl lg:text-5xl font-bold leading-tight mb-6">
                 <span className="bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">
-                  Secure Your 
+                  Secure Your{" "}
                 </span>
-                <span className="bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent">
+                <span className="text-gray-900">
                   CDFI
                 </span>
               </h1>

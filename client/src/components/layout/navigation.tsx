@@ -19,7 +19,6 @@ export default function Navigation() {
     { path: "/product", label: "Product" },
     { path: "/services", label: "Services" },
     { path: "/team", label: "Team" },
-    { path: "/contact", label: "Contact" },
   ];
 
   return (
@@ -61,7 +60,10 @@ export default function Navigation() {
             >
               Blog
             </a>
-            <Button className="bg-zen-orange text-white hover:bg-orange-600 transition-colors">
+            <Button 
+              className="bg-zen-orange text-white hover:bg-orange-600 transition-colors"
+              onClick={() => window.location.href = "/contact"}
+            >
               Request Free Consultation
             </Button>
           </div>
@@ -105,7 +107,10 @@ export default function Navigation() {
               >
                 Blog
               </a>
-              <Button className="bg-zen-orange text-white hover:bg-orange-600 transition-colors w-full text-left">
+              <Button 
+                className="bg-zen-orange text-white hover:bg-orange-600 transition-colors w-full text-left"
+                onClick={() => window.location.href = "/contact"}
+              >
                 Request Free Consultation
               </Button>
             </div>

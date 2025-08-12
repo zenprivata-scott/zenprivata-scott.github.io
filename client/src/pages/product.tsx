@@ -37,23 +37,23 @@ export default function Product() {
             {/* Left Content */}
             <div className="text-center lg:text-left">
               {/* Main Heading */}
-              <h1 className="text-5xl lg:text-6xl font-bold mb-6">
-                <span className="text-zen-dark leading-tight block">CDFI Security</span>
-                <span className="zen-text-gradient leading-tight block">Platform</span>
+              <h1 className="text-4xl lg:text-5xl font-bold mb-6">
+                <span className="text-zen-dark leading-tight">CDFI Security Platform</span>
               </h1>
               
               {/* Description */}
               <p className="text-xl text-zen-muted mb-8 leading-relaxed max-w-2xl">
-                Build, manage, and simplify your CDFI's cybersecurity program using our platform which was specifically designed for CDFIs.
+                Build, manage, and simplify your cybersecurity program using our platform that was specifically designed for CDFIs.
               </p>
               
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button 
-                  className="bg-zen-orange text-white hover:bg-orange-600 transition-all duration-300 shadow-lg hover:shadow-xl group" 
+                  className="bg-zen-orange text-white hover:bg-orange-600 transition-all duration-300 shadow-lg hover:shadow-xl group"
                   size="lg"
+                  onClick={() => window.location.href = "/contact"}
                 >
-                  Request Free Demo
+                  Request Demo
                   <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
                 <Button 
@@ -276,14 +276,11 @@ export default function Product() {
             {/* Call to Action */}
             <div className="text-center mt-16">
               <Button 
-                className="bg-zen-orange text-white hover:bg-orange-600 transition-colors mr-4" 
+                className="bg-zen-orange text-white hover:bg-orange-600 transition-colors" 
                 size="lg"
                 onClick={() => window.location.href = "/contact"}
               >
                 Schedule a Demo
-              </Button>
-              <Button variant="outline" className="border-2 border-zen-orange text-zen-orange hover:bg-zen-orange hover:text-white transition-colors" size="lg">
-                Start Free Trial
               </Button>
             </div>
           </div>

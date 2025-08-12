@@ -68,7 +68,7 @@ export default function Services() {
   return (
     <div>
       {/* Consulting-Style Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-zen-light via-white to-slate-50 py-24 lg:py-32">
+      <section className="relative overflow-hidden bg-gradient-to-br from-zen-light via-white to-slate-50 py-20">
         {/* Background Elements */}
         <div className="absolute inset-0">
           <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl"></div>
@@ -87,10 +87,8 @@ export default function Services() {
               </div>
               
               {/* Main Heading */}
-              <h1 className="text-5xl lg:text-6xl font-bold mb-6">
-                <span className="text-zen-dark leading-tight block">Expert</span>
-                <span className="zen-text-gradient leading-tight block">Cybersecurity</span>
-                <span className="text-zen-dark leading-tight block">Services</span>
+              <h1 className="text-4xl lg:text-5xl font-bold mb-6">
+                <span className="text-zen-dark leading-tight">Expert Cybersecurity Services</span>
               </h1>
               
               {/* Description */}
@@ -126,7 +124,7 @@ export default function Services() {
                 <Card className="shadow-2xl border-0 bg-white/80 backdrop-blur-sm">
                   <CardContent className="p-6">
                     <img 
-                      src="/consulting-hero.svg" 
+                      src="/consulting-hero.webp" 
                       alt="Professional cybersecurity consulting services"
                       className="w-full rounded-lg"
                     />
