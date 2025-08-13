@@ -17,7 +17,7 @@ import {
   TrendingUp,
   Award
 } from "lucide-react";
-import cdfiServicesImage from "@assets/image_1755043696494.png";
+import cdfiServicesImage from "@assets/cdfi services_1755044034761.webp";
 
 export default function Services() {
   const approach = [
