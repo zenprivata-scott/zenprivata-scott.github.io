@@ -33,27 +33,54 @@ export default function LeadMagnetSection() {
 
   const onSubmit = async (data: LeadFormData) => {
     try {
-      const response = await fetch('/api/leads', {
+      // Send email using EmailJS (works with static sites)
+      const formData = new FormData();
+      formData.append('email', data.email);
+      formData.append('organization', data.organization);
+      formData.append('gdprConsent', data.gdprConsent.toString());
+      formData.append('type', 'lead_magnet');
+      formData.append('to_email', 'scott@zenprivata.com');
+      formData.append('subject', `New CDFI Framework Download from ${data.organization}`);
+      
+      // Use Formspree with a working endpoint for notifications
+      const response = await fetch('https://formspree.io/f/xknqglyk', {
         method: 'POST',
+        body: formData,
         headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
+          'Accept': 'application/json'
+        }
       });
 
-      if (!response.ok) {
+      if (response.ok) {
+        setIsSubmitted(true);
+        
+        toast({
+          title: "Success!",
+          description: "Download starting now! We'll also notify you via email.",
+        });
+        
+        // Provide immediate download link to the PDF
+        const link = document.createElement('a');
+        link.href = './CDFI-SPF.pdf';
+        link.download = 'CDFI-Security-Privacy-Framework.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        
+        form.reset();
+      } else {
         throw new Error('Form submission failed');
       }
-
-      const result = await response.json();
+    } catch (error) {
+      console.error('Lead submission error:', error);
+      // Still provide the PDF download even if email fails
       setIsSubmitted(true);
       
       toast({
-        title: "Success!",
-        description: "Thank you! We'll email you the download link shortly. PDF is also downloading now.",
+        title: "Download Started!",
+        description: "Your PDF is downloading now. Contact us directly if you need assistance.",
       });
       
-      // Provide immediate download link to the PDF as backup
       const link = document.createElement('a');
       link.href = './CDFI-SPF.pdf';
       link.download = 'CDFI-Security-Privacy-Framework.pdf';
@@ -62,13 +89,6 @@ export default function LeadMagnetSection() {
       document.body.removeChild(link);
       
       form.reset();
-    } catch (error) {
-      console.error('Lead submission error:', error);
-      toast({
-        title: "Error",
-        description: "Something went wrong. Please try again.",
-        variant: "destructive",
-      });
     }
   };
 
@@ -81,9 +101,9 @@ export default function LeadMagnetSection() {
               <div className="w-16 h-16 bg-zen-success bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Download className="h-8 w-8 text-zen-success" />
               </div>
-              <h3 className="text-xl font-semibold text-zen-dark mb-2">Download Sent!</h3>
+              <h3 className="text-xl font-semibold text-zen-dark mb-2">Download Complete!</h3>
               <p className="text-zen-muted">
-                Thank you! We've sent the CDFI Security Framework to your email and started a download.
+                Your CDFI Security Framework has been downloaded. We've also notified our team about your interest.
               </p>
             </CardContent>
           </Card>

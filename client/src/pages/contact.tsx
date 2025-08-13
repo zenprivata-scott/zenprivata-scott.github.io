@@ -37,28 +37,37 @@ export default function Contact() {
 
   const onSubmit = async (data: ContactFormData) => {
     try {
-      const response = await fetch('/api/contact', {
+      // Send notification to scott@zenprivata.com using Formspree
+      const formData = new FormData();
+      formData.append('email', data.email);
+      formData.append('organization', data.organization);
+      formData.append('message', data.message);
+      formData.append('consent', data.consent.toString());
+      formData.append('type', 'contact_form');
+      formData.append('to_email', 'scott@zenprivata.com');
+      formData.append('subject', `New Contact Form Submission from ${data.organization}`);
+      
+      const response = await fetch('https://formspree.io/f/xknqglyk', {
         method: 'POST',
+        body: formData,
         headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
+          'Accept': 'application/json'
+        }
       });
 
-      if (!response.ok) {
+      if (response.ok) {
+        setIsSubmitted(true);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        
+        toast({
+          title: "Message Sent!",
+          description: "Thank you for your message! We'll get back to you within 24 hours.",
+        });
+        
+        form.reset();
+      } else {
         throw new Error('Form submission failed');
       }
-
-      const result = await response.json();
-      setIsSubmitted(true);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      
-      toast({
-        title: "Message Sent!",
-        description: "Thank you for your message! We'll get back to you within 24 hours.",
-      });
-      
-      form.reset();
     } catch (error) {
       console.error('Contact form error:', error);
       toast({
