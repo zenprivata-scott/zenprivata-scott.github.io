@@ -14,13 +14,13 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       // Send PDF file to user and notification to hello@zenprivata.com
       try {
-        const resendApiKey = process.env.RESEND_API_KEY || "re_bri5VXwB_5Aq87VVEbicx7Mk5VgjZoTfJ";
+        const resendApiKey = process.env.RESEND_API_KEY;
         const resend = new Resend(resendApiKey);
         const fs = await import('fs');
         const path = await import('path');
 
         // Read the PDF file
-        const pdfPath = path.join(process.cwd(), 'client/public/CDFI-SPF.pdf');
+        const pdfPath = path.join(process.cwd(), 'attached_assets/CDFI-SPF_1755035902421.pdf');
         const pdfBuffer = fs.readFileSync(pdfPath);
 
         // Send PDF to user
@@ -87,8 +87,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const contactData = insertContactSchema.parse(req.body);
       const contact = await storage.createContact(contactData);
 
-      // Send email to hello@zenprivata.com using Resend
-      const resendApiKey = process.env.RESEND_API_KEY || "re_bri5VXwB_5Aq87VVEbicx7Mk5VgjZoTfJ";
+      // Send email to scott@zenprivata.com using Resend
+      const resendApiKey = process.env.RESEND_API_KEY;
       const resend = new Resend(resendApiKey);
 
       try {
@@ -131,7 +131,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const { name, email, organization } = req.body;
 
-      const resendApiKey = process.env.RESEND_API_KEY || "re_bri5VXwB_5Aq87VVEbicx7Mk5VgjZoTfJ";
+      const resendApiKey = process.env.RESEND_API_KEY;
       const resend = new Resend(resendApiKey);
 
       try {

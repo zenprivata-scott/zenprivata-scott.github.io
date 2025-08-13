@@ -37,26 +37,30 @@ export default function Contact() {
 
   const onSubmit = async (data: ContactFormData) => {
     try {
-      // For now, we'll show success and log the data
-      // In production, integrate with your preferred email service
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error('Form submission failed');
+      }
+
+      const result = await response.json();
       setIsSubmitted(true);
       window.scrollTo({ top: 0, behavior: 'smooth' });
       
       toast({
-        title: "Message Received!",
-        description: "Thank you for your message! We'll get back to you soon.",
-      });
-      
-      // Store the contact data locally for now (in production, send to your email service)
-      console.log('Contact form submitted:', {
-        email: data.email,
-        organization: data.organization,
-        message: data.message,
-        timestamp: new Date().toISOString()
+        title: "Message Sent!",
+        description: "Thank you for your message! We'll get back to you within 24 hours.",
       });
       
       form.reset();
     } catch (error) {
+      console.error('Contact form error:', error);
       toast({
         title: "Error",
         description: "Something went wrong. Please try again.",

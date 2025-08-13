@@ -33,16 +33,27 @@ export default function LeadMagnetSection() {
 
   const onSubmit = async (data: LeadFormData) => {
     try {
-      // For now, we'll provide immediate download and show success
-      // In production, you would integrate with your preferred email service
+      const response = await fetch('/api/leads', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error('Form submission failed');
+      }
+
+      const result = await response.json();
       setIsSubmitted(true);
       
       toast({
         title: "Success!",
-        description: "Download starting automatically. Check your downloads folder!",
+        description: "Thank you! We'll email you the download link shortly. PDF is also downloading now.",
       });
       
-      // Provide immediate download link to the PDF
+      // Provide immediate download link to the PDF as backup
       const link = document.createElement('a');
       link.href = './CDFI-SPF.pdf';
       link.download = 'CDFI-Security-Privacy-Framework.pdf';
@@ -50,15 +61,9 @@ export default function LeadMagnetSection() {
       link.click();
       document.body.removeChild(link);
       
-      // Store the lead data locally for now (in production, send to your email service)
-      console.log('Lead captured:', {
-        email: data.email,
-        organization: data.organization,
-        timestamp: new Date().toISOString()
-      });
-      
       form.reset();
     } catch (error) {
+      console.error('Lead submission error:', error);
       toast({
         title: "Error",
         description: "Something went wrong. Please try again.",
@@ -76,9 +81,9 @@ export default function LeadMagnetSection() {
               <div className="w-16 h-16 bg-zen-success bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Download className="h-8 w-8 text-zen-success" />
               </div>
-              <h3 className="text-xl font-semibold text-zen-dark mb-2">Download Complete!</h3>
+              <h3 className="text-xl font-semibold text-zen-dark mb-2">Download Sent!</h3>
               <p className="text-zen-muted">
-                Your CDFI Security Framework has been downloaded. Check your downloads folder!
+                Thank you! We've sent the CDFI Security Framework to your email and started a download.
               </p>
             </CardContent>
           </Card>
