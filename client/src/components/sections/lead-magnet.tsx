@@ -34,10 +34,11 @@ export default function LeadMagnetSection() {
 
   const onSubmit = async (data: LeadFormData) => {
     try {
-      // Send welcome email to user
+      // Send welcome email to user with download link
       const userEmailParams = {
         user_email: data.email,
-        organization: data.organization || 'Community Development Finance Professional'
+        organization: data.organization || 'Community Development Finance Professional',
+        download_link: 'https://zenprivata.com/CDFI-SPF.pdf'
       };
       
       await emailjs.send(
@@ -67,7 +68,7 @@ export default function LeadMagnetSection() {
       
       toast({
         title: "Success!",
-        description: "Download starting now! We'll also email you the framework.",
+        description: "Check your email for the download link! We've also sent you the framework.",
       });
       
       // Trigger PDF download
