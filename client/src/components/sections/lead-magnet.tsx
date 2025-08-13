@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Download } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import emailjs from '@emailjs/browser';
 
 const leadFormSchema = z.object({
   email: z.string().email("Invalid email address"),
@@ -33,52 +34,60 @@ export default function LeadMagnetSection() {
 
   const onSubmit = async (data: LeadFormData) => {
     try {
-      // Send email using EmailJS (works with static sites)
-      const formData = new FormData();
-      formData.append('email', data.email);
-      formData.append('organization', data.organization);
-      formData.append('gdprConsent', data.gdprConsent.toString());
-      formData.append('type', 'lead_magnet');
-      formData.append('to_email', 'scott@zenprivata.com');
-      formData.append('subject', `New CDFI Framework Download from ${data.organization}`);
+      // Initialize EmailJS with public key
+      emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
       
-      // Use Formspree with a working endpoint for notifications
-      const response = await fetch('https://formspree.io/f/xknqglyk', {
-        method: 'POST',
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
+      // Send welcome email to user
+      const userEmailParams = {
+        to_email: data.email,
+        organization: data.organization || 'Community Development Finance Professional',
+        user_name: data.organization ? `${data.organization} team` : 'Community Development Finance Professional'
+      };
+      
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_USER,
+        userEmailParams
+      );
+      
+      // Send notification to scott@zenprivata.com
+      const notificationParams = {
+        user_email: data.email,
+        organization: data.organization || 'Not provided',
+        form_type: 'CDFI Framework Download',
+        timestamp: new Date().toLocaleString()
+      };
+      
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_NOTIFICATION,
+        notificationParams
+      );
+      
+      setIsSubmitted(true);
+      
+      toast({
+        title: "Success!",
+        description: "Download starting now! We'll also email you the framework.",
       });
-
-      if (response.ok) {
-        setIsSubmitted(true);
-        
-        toast({
-          title: "Success!",
-          description: "Download starting now! We'll also notify you via email.",
-        });
-        
-        // Provide immediate download link to the PDF
-        const link = document.createElement('a');
-        link.href = './CDFI-SPF.pdf';
-        link.download = 'CDFI-Security-Privacy-Framework.pdf';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        
-        form.reset();
-      } else {
-        throw new Error('Form submission failed');
-      }
+      
+      // Provide immediate download link to the PDF
+      const link = document.createElement('a');
+      link.href = './CDFI-SPF.pdf';
+      link.download = 'CDFI-Security-Privacy-Framework.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      
+      form.reset();
     } catch (error) {
-      console.error('Lead submission error:', error);
+      console.error('Email submission error:', error);
       // Still provide the PDF download even if email fails
       setIsSubmitted(true);
       
       toast({
         title: "Download Started!",
-        description: "Your PDF is downloading now. Contact us directly if you need assistance.",
+        description: "Your PDF is downloading now. We'll follow up via email shortly.",
       });
       
       const link = document.createElement('a');

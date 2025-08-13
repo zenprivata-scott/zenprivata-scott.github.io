@@ -6,6 +6,15 @@ ZenPrivata is a professional marketing website and SaaS platform designed specif
 
 The application serves as both a marketing website to promote the platform and consulting services, and a foundation for the SaaS platform that helps CDFIs build, manage, and simplify their cybersecurity programs through a specialized framework.
 
+## Recent Changes (January 2025)
+
+### EmailJS Integration Complete
+- **Date**: January 13, 2025
+- **Change**: Integrated EmailJS for professional email functionality on GitHub Pages
+- **Impact**: Forms now send professional welcome emails to users with PDF attachments and notifications to scott@zenprivata.com
+- **Templates**: Recreated existing Resend email templates in EmailJS format
+- **Deployment**: Works perfectly on static hosting (GitHub Pages) at zenprivata.com
+
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.
@@ -78,8 +87,11 @@ The application uses **Drizzle ORM** with PostgreSQL-compatible schema:
 - **typescript**: Static type checking and enhanced developer experience
 - **@replit/vite-plugin-***: Replit-specific development enhancements
 
-### Email Integration (Planned)
-- **Resend**: Email service integration for lead magnets and contact form notifications (API key configured but implementation pending)
+### Email Integration (Implemented)
+- **EmailJS**: Email service integration for lead magnets and contact form notifications
+- **Professional Templates**: Welcome emails with PDF attachments for users, notifications to scott@zenprivata.com
+- **GitHub Pages Compatible**: Works perfectly with static hosting, no backend required
+- **Graceful Degradation**: PDF downloads work even if email service fails
 
 ### Styling and Animation
 - **embla-carousel-react**: Carousel component for content presentation

@@ -11,6 +11,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Checkbox } from "@/components/ui/checkbox";
 import { Mail, Linkedin, Calendar, Download, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import emailjs from '@emailjs/browser';
 
 const contactFormSchema = z.object({
   email: z.string().email("Invalid email address"),
@@ -37,37 +38,33 @@ export default function Contact() {
 
   const onSubmit = async (data: ContactFormData) => {
     try {
-      // Send notification to scott@zenprivata.com using Formspree
-      const formData = new FormData();
-      formData.append('email', data.email);
-      formData.append('organization', data.organization);
-      formData.append('message', data.message);
-      formData.append('consent', data.consent.toString());
-      formData.append('type', 'contact_form');
-      formData.append('to_email', 'scott@zenprivata.com');
-      formData.append('subject', `New Contact Form Submission from ${data.organization}`);
+      // Initialize EmailJS with public key
+      emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
       
-      const response = await fetch('https://formspree.io/f/xknqglyk', {
-        method: 'POST',
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
+      // Send notification to scott@zenprivata.com
+      const notificationParams = {
+        user_email: data.email,
+        organization: data.organization,
+        message: data.message,
+        form_type: 'Contact Form Submission',
+        timestamp: new Date().toLocaleString()
+      };
+      
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_NOTIFICATION,
+        notificationParams
+      );
+      
+      setIsSubmitted(true);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      
+      toast({
+        title: "Message Sent!",
+        description: "Thank you for your message! We'll get back to you within 24 hours.",
       });
-
-      if (response.ok) {
-        setIsSubmitted(true);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        
-        toast({
-          title: "Message Sent!",
-          description: "Thank you for your message! We'll get back to you within 24 hours.",
-        });
-        
-        form.reset();
-      } else {
-        throw new Error('Form submission failed');
-      }
+      
+      form.reset();
     } catch (error) {
       console.error('Contact form error:', error);
       toast({
