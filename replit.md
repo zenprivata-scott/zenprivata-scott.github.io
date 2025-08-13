@@ -8,12 +8,13 @@ The application serves as both a marketing website to promote the platform and c
 
 ## Recent Changes (January 2025)
 
-### EmailJS Integration Complete
+### EmailJS Integration Restored
 - **Date**: January 13, 2025
-- **Change**: Integrated EmailJS for professional email functionality on GitHub Pages
-- **Impact**: Forms now send professional welcome emails to users with PDF attachments and notifications to scott@zenprivata.com
-- **Templates**: Recreated existing Resend email templates in EmailJS format
-- **Deployment**: Works perfectly on static hosting (GitHub Pages) at zenprivata.com
+- **Change**: Reverted from Resend back to EmailJS for GitHub Pages compatibility
+- **Reason**: GitHub Pages is static-only hosting and cannot run Node.js backend APIs
+- **Current Status**: EmailJS configured with simplified parameter structure (user_email, organization, message, form_type, timestamp)
+- **Next Step**: User needs to configure email service in EmailJS dashboard for emails to work
+- **PDF Downloads**: Working perfectly regardless of email status
 
 ## User Preferences
 

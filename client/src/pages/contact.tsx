@@ -11,7 +11,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Checkbox } from "@/components/ui/checkbox";
 import { Mail, Linkedin, Calendar, Download, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-// Removed EmailJS - using backend API with Resend instead
+import emailjs from '@emailjs/browser';
 
 const contactFormSchema = z.object({
   email: z.string().email("Invalid email address"),
@@ -38,18 +38,21 @@ export default function Contact() {
 
   const onSubmit = async (data: ContactFormData) => {
     try {
-      // Submit to backend API (handles email sending with Resend)
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to submit contact form');
-      }
+      // Send notification to scott@zenprivata.com
+      const notificationParams = {
+        user_email: data.email,
+        organization: data.organization,
+        message: data.message,
+        form_type: 'Contact Form Submission',
+        timestamp: new Date().toLocaleString()
+      };
+      
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_NOTIFICATION,
+        notificationParams,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
       
       setIsSubmitted(true);
       window.scrollTo({ top: 0, behavior: 'smooth' });
