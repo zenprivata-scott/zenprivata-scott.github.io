@@ -17,6 +17,7 @@ import {
   TrendingUp,
   Award
 } from "lucide-react";
+import cdfiServicesImage from "@assets/image_1755043696494.png";
 
 export default function Services() {
   const approach = [
@@ -125,7 +126,7 @@ export default function Services() {
                 <Card className="shadow-2xl border-0 bg-white/80 backdrop-blur-sm">
                   <CardContent className="p-6">
                     <img 
-                      src="/cdfi services_1755043534834.webp" 
+                      src={cdfiServicesImage} 
                       alt="Professional cybersecurity consulting services"
                       className="w-full rounded-lg"
                     />
