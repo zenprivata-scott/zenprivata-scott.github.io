@@ -88,12 +88,12 @@ export default function Services() {
               
               {/* Main Heading */}
               <h1 className="text-4xl lg:text-5xl font-bold mb-6">
-                <span className="text-zen-dark leading-tight">Expert Cybersecurity Services</span>
+                <span className="text-zen-dark leading-tight">CDFI Cybersecurity Services</span>
               </h1>
               
               {/* Description */}
               <p className="text-xl text-zen-muted mb-8 leading-relaxed max-w-2xl">
-                Comprehensive cybersecurity and privacy services tailored specifically for Community Development Financial Institutions.
+                We offer comprehensive cybersecurity services tailored specifically for Community Development Financial Institutions.
               </p>
               
               
@@ -125,7 +125,7 @@ export default function Services() {
                 <Card className="shadow-2xl border-0 bg-white/80 backdrop-blur-sm">
                   <CardContent className="p-6">
                     <img 
-                      src="/consulting-hero.webp" 
+                      src="/cdfi services_1755043534834.webp" 
                       alt="Professional cybersecurity consulting services"
                       className="w-full rounded-lg"
                     />

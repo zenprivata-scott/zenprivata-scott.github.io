@@ -34,8 +34,8 @@ export default function HeroSection() {
                   CDFI
                 </span>
               </h1>
-              <p className="text-xl text-gray-600 leading-relaxed">
-                ZenPrivata is the preferred security and data privacy provider for Community Development Financial Institutions. We know the unique needs that CDFIs have.
+              <p className="text-xl text-gray-600 leading-relaxed max-w-2xl">
+                ZenPrivata is the preferred cybersecurity provider for Community Development Financial Institutions. We know the unique needs that CDFIs have.
               </p>
             </div>
 
