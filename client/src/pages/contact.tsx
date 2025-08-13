@@ -43,7 +43,7 @@ export default function Contact() {
       formData.append('message', data.message);
       formData.append('consent', data.consent.toString());
 
-      const response = await fetch('https://formspree.io/f/xdkorzwj', {
+      const response = await fetch('https://formspree.io/f/xpzgkbng', {
         method: 'POST',
         body: formData,
         headers: {

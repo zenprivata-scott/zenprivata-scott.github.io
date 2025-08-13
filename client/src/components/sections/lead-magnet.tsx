@@ -38,7 +38,7 @@ export default function LeadMagnetSection() {
       formData.append('organization', data.organization);
       formData.append('gdprConsent', data.gdprConsent.toString());
 
-      const response = await fetch('https://formspree.io/f/mvgoywev', {
+      const response = await fetch('https://formspree.io/f/xpzgkbng', {
         method: 'POST',
         body: formData,
         headers: {
@@ -56,7 +56,7 @@ export default function LeadMagnetSection() {
 
         // Provide immediate download link to the PDF
         const link = document.createElement('a');
-        link.href = '/CDFI-SPF.pdf';
+        link.href = './CDFI-SPF.pdf';
         link.download = 'CDFI-Security-Privacy-Framework.pdf';
         document.body.appendChild(link);
         link.click();
