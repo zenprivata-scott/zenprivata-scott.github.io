@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Download } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import emailjs from '@emailjs/browser';
+// Removed EmailJS - using backend API instead
 
 const leadFormSchema = z.object({
   email: z.string().email("Invalid email address"),
@@ -34,52 +34,19 @@ export default function LeadMagnetSection() {
 
   const onSubmit = async (data: LeadFormData) => {
     try {
-      console.log('EmailJS Environment Variables:', {
-        serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID ? 'Set' : 'Missing',
-        publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY ? 'Set' : 'Missing',
-        userTemplate: import.meta.env.VITE_EMAILJS_TEMPLATE_USER ? 'Set' : 'Missing',
-        notificationTemplate: import.meta.env.VITE_EMAILJS_TEMPLATE_NOTIFICATION ? 'Set' : 'Missing'
+      // Submit to backend API (handles email sending with Resend)
+      const response = await fetch('/api/leads', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
       });
 
-      // Send welcome email to user (test with minimal params)
-      const userEmailParams = {
-        user_email: data.email,
-        organization: data.organization || 'Community Development Finance Professional',
-        to_name: data.organization || 'CDFI Professional',
-        to_email: data.email
-      };
-      
-      console.log('Sending user email with params:', userEmailParams);
-      
-      await emailjs.send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_USER,
-        userEmailParams,
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-      );
-      
-      // Send notification to scott@zenprivata.com (test with all params)
-      const notificationParams = {
-        user_email: data.email,
-        organization: data.organization || 'Not provided',
-        message: 'CDFI Framework Download Request',
-        form_type: 'CDFI Framework Download',
-        timestamp: new Date().toLocaleString(),
-        from_name: data.organization || 'Website Visitor',
-        from_email: data.email,
-        to_name: 'Scott',
-        to_email: 'scott@zenprivata.com'
-      };
-      
-      console.log('Sending notification email with params:', notificationParams);
-      
-      await emailjs.send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_NOTIFICATION,
-        notificationParams,
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-      );
-      
+      if (!response.ok) {
+        throw new Error('Failed to submit form');
+      }
+
       setIsSubmitted(true);
       
       toast({
@@ -87,9 +54,9 @@ export default function LeadMagnetSection() {
         description: "Download starting now! We'll also email you the framework.",
       });
       
-      // Provide immediate download link to the PDF
+      // Trigger PDF download
       const link = document.createElement('a');
-      link.href = './CDFI-SPF.pdf';
+      link.href = '/CDFI-SPF.pdf';
       link.download = 'CDFI-Security-Privacy-Framework.pdf';
       document.body.appendChild(link);
       link.click();
@@ -97,8 +64,8 @@ export default function LeadMagnetSection() {
       
       form.reset();
     } catch (error) {
-      console.error('Email submission error:', error);
-      // Still provide the PDF download even if email fails
+      console.error('Failed to submit form:', error);
+      // Still provide the PDF download even if backend fails
       setIsSubmitted(true);
       
       toast({
@@ -107,7 +74,7 @@ export default function LeadMagnetSection() {
       });
       
       const link = document.createElement('a');
-      link.href = './CDFI-SPF.pdf';
+      link.href = '/CDFI-SPF.pdf';
       link.download = 'CDFI-Security-Privacy-Framework.pdf';
       document.body.appendChild(link);
       link.click();
