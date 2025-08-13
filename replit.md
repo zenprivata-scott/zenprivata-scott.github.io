@@ -50,6 +50,7 @@ The application uses **Drizzle ORM** with PostgreSQL-compatible schema:
 - **Build Process**: Separate client (Vite) and server (esbuild) build pipelines
 - **Environment**: Replit-optimized with development banners and error overlays
 - **Type Safety**: Comprehensive TypeScript configuration with strict mode enabled
+- **Folder Structure Constraint**: The frontend folder must remain named "client" as the Vite configuration file cannot be modified and is hardcoded to use this path
 
 ## External Dependencies
 
