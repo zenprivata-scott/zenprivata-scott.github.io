@@ -71,3 +71,14 @@ The built files will be updated in the `/docs` folder, ready for GitHub Pages.
 3. Users receive immediate feedback and PDF downloads work automatically
 
 No additional setup required - the forms are ready to use on GitHub Pages!
+
+## Single Page Application (SPA) Support
+
+✓ **Routing Fixed**: Added SPA redirect handling for GitHub Pages to fix 404 errors on page navigation.
+
+### SPA Configuration:
+- **404.html**: Redirects any missing routes back to the main app
+- **Client-side routing**: Wouter router handles all navigation within the app
+- **URL preservation**: Direct links to pages like `/services` or `/contact` work correctly
+
+This ensures users can bookmark and share direct links to any page on your website.
