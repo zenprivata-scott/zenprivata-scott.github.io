@@ -40,10 +40,10 @@ export default function Contact() {
     try {
       // Send notification to scott@zenprivata.com
       const notificationParams = {
-        from_name: data.organization || 'Website Visitor',
-        from_email: data.email,
+        user_email: data.email,
+        organization: data.organization || 'Website Visitor',
         message: data.message,
-        organization: data.organization,
+        form_type: 'Contact Form Submission',
         timestamp: new Date().toLocaleString()
       };
       
