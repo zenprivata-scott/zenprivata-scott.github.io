@@ -41,10 +41,12 @@ export default function LeadMagnetSection() {
         notificationTemplate: import.meta.env.VITE_EMAILJS_TEMPLATE_NOTIFICATION ? 'Set' : 'Missing'
       });
 
-      // Send welcome email to user
+      // Send welcome email to user (test with minimal params)
       const userEmailParams = {
         user_email: data.email,
-        organization: data.organization || 'Community Development Finance Professional'
+        organization: data.organization || 'Community Development Finance Professional',
+        to_name: data.organization || 'CDFI Professional',
+        to_email: data.email
       };
       
       console.log('Sending user email with params:', userEmailParams);
@@ -56,13 +58,17 @@ export default function LeadMagnetSection() {
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       );
       
-      // Send notification to scott@zenprivata.com
+      // Send notification to scott@zenprivata.com (test with all params)
       const notificationParams = {
         user_email: data.email,
         organization: data.organization || 'Not provided',
         message: 'CDFI Framework Download Request',
         form_type: 'CDFI Framework Download',
-        timestamp: new Date().toLocaleString()
+        timestamp: new Date().toLocaleString(),
+        from_name: data.organization || 'Website Visitor',
+        from_email: data.email,
+        to_name: 'Scott',
+        to_email: 'scott@zenprivata.com'
       };
       
       console.log('Sending notification email with params:', notificationParams);

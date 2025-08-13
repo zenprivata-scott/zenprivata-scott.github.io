@@ -38,13 +38,17 @@ export default function Contact() {
 
   const onSubmit = async (data: ContactFormData) => {
     try {
-      // Send notification to scott@zenprivata.com
+      // Send notification to scott@zenprivata.com (test with all params)
       const notificationParams = {
         user_email: data.email,
         organization: data.organization || 'Website Visitor',
         message: data.message,
         form_type: 'Contact Form Submission',
-        timestamp: new Date().toLocaleString()
+        timestamp: new Date().toLocaleString(),
+        from_name: data.organization || 'Website Visitor',
+        from_email: data.email,
+        to_name: 'Scott',
+        to_email: 'scott@zenprivata.com'
       };
       
       console.log('Sending contact form notification with params:', notificationParams);
