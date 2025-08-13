@@ -64,10 +64,7 @@ export default function Navigation() {
             <Button 
               variant="no-hover"
               className="bg-zen-orange text-white hover:bg-orange-600 transition-colors"
-              onClick={() => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-                window.location.href = "/contact";
-              }}
+              onClick={() => window.location.href = "/contact"}
             >
               Request Free Consultation
             </Button>
@@ -118,10 +115,7 @@ export default function Navigation() {
               <Button 
                 variant="no-hover"
                 className="bg-zen-orange text-white hover:bg-orange-600 transition-colors w-full text-left"
-                onClick={() => {
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                  window.location.href = "/contact";
-                }}
+                onClick={() => window.location.href = "/contact"}
               >
                 Request Free Consultation
               </Button>

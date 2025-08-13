@@ -76,7 +76,7 @@ export default function Services() {
           <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-zen-orange/10 rounded-full blur-3xl"></div>
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-purple-500/5 to-blue-500/5 rounded-full blur-3xl"></div>
         </div>
-        
+
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
@@ -86,19 +86,19 @@ export default function Services() {
                 <Award className="w-4 h-4 mr-2" />
                 Trusted CDFI Security Experts
               </div>
-              
+
               {/* Main Heading */}
               <h1 className="text-4xl lg:text-5xl font-bold mb-6">
                 <span className="text-zen-dark leading-tight">CDFI Cybersecurity Services</span>
               </h1>
-              
+
               {/* Description */}
               <p className="text-xl text-zen-muted mb-8 leading-relaxed max-w-2xl">
                 We offer comprehensive cybersecurity services tailored specifically for Community Development Financial Institutions.
               </p>
-              
-              
-              
+
+
+
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button 
@@ -113,13 +113,23 @@ export default function Services() {
                   variant="outline" 
                   className="border-2 border-zen-orange text-zen-orange hover:bg-zen-orange hover:text-white transition-all duration-300" 
                   size="lg"
-                  onClick={() => document.getElementById('our-approach')?.scrollIntoView({ behavior: 'smooth' })}
+                  onClick={() => {
+                    const element = document.getElementById('why-choose');
+                    if (element) {
+                      const elementPosition = element.offsetTop;
+                      const offsetPosition = elementPosition - 100; // Adjust scroll offset
+                      window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                      });
+                    }
+                  }}
                 >
                   View Our Approach
                 </Button>
               </div>
             </div>
-            
+
             {/* Right Visual - Professional Consulting Image */}
             <div className="relative">
               <div className="relative z-10">
@@ -135,7 +145,7 @@ export default function Services() {
               </div>
             </div>
           </div>
-          
+
           {/* Professional Stats - Centered at Bottom */}
           <div className="mt-16 flex justify-center">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl">
@@ -160,7 +170,7 @@ export default function Services() {
       <div className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* About Section */}
-          <div className="bg-zen-light rounded-2xl p-12 mb-16">
+          <div id="why-choose" className="bg-zen-light rounded-2xl p-12 mb-16">
             <div className="max-w-4xl mx-auto text-center">
               <h2 className="text-2xl font-semibold text-zen-dark mb-6">
                 Why Choose ZenPrivata?
@@ -172,7 +182,7 @@ export default function Services() {
           </div>
 
           {/* Our Approach */}
-          <div id="our-approach" className="mb-16">
+          <div className="mb-16">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-zen-dark mb-4">Our Approach</h2>
             </div>

@@ -60,7 +60,17 @@ export default function Product() {
                   variant="outline" 
                   className="border-2 border-zen-orange text-zen-orange hover:bg-zen-orange hover:text-white transition-all duration-300" 
                   size="lg"
-                  onClick={() => document.getElementById('comprehensive-dashboard')?.scrollIntoView({ behavior: 'smooth' })}
+                  onClick={() => {
+                    const element = document.getElementById('comprehensive-dashboard');
+                    if (element) {
+                      const elementPosition = element.offsetTop;
+                      const offsetPosition = elementPosition - 100; // Adjust scroll offset
+                      window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                      });
+                    }
+                  }}
                 >
                   View Platform Features
                 </Button>
