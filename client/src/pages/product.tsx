@@ -288,13 +288,14 @@ export default function Product() {
 
             {/* Call to Action */}
             <div className="text-center mt-16">
-              <Button 
-                className="bg-zen-orange text-white hover:bg-orange-600 transition-colors" 
-                size="lg"
-                onClick={() => window.location.href = "/contact"}
-              >
-                Schedule a Demo
-              </Button>
+              <Link href="/contact">
+                <Button 
+                  className="bg-zen-orange text-white hover:bg-orange-600 transition-colors" 
+                  size="lg"
+                >
+                  Schedule a Demo
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

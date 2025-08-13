@@ -229,13 +229,14 @@ export default function Services() {
             <p className="text-zen-muted mb-8 max-w-2xl mx-auto">
               Schedule a free consultation to discuss your specific needs and learn how our services can help protect your organization.
             </p>
-            <Button 
-              className="bg-zen-orange text-white hover:bg-orange-600 transition-colors" 
-              size="lg"
-              onClick={() => window.location.href = "/contact"}
-            >
-              Schedule Free Consultation
-            </Button>
+            <Link href="/contact">
+              <Button 
+                className="bg-zen-orange text-white hover:bg-orange-600 transition-colors" 
+                size="lg"
+              >
+                Schedule Free Consultation
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
