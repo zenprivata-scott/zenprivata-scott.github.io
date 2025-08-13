@@ -34,9 +34,6 @@ export default function LeadMagnetSection() {
 
   const onSubmit = async (data: LeadFormData) => {
     try {
-      // Initialize EmailJS with public key
-      emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
-      
       // Send welcome email to user
       const userEmailParams = {
         to_email: data.email,
@@ -47,7 +44,8 @@ export default function LeadMagnetSection() {
       await emailjs.send(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_EMAILJS_TEMPLATE_USER,
-        userEmailParams
+        userEmailParams,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       );
       
       // Send notification to scott@zenprivata.com
@@ -61,7 +59,8 @@ export default function LeadMagnetSection() {
       await emailjs.send(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_EMAILJS_TEMPLATE_NOTIFICATION,
-        notificationParams
+        notificationParams,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       );
       
       setIsSubmitted(true);
