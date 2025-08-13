@@ -43,7 +43,7 @@ export default function HeroSection() {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
               <Button
-                onClick={handleRequestDemo}
+                onClick={() => window.location.href = "/contact"}
                 className="bg-zen-orange text-white hover:bg-orange-600 transition-all duration-300 shadow-lg hover:shadow-xl"
                 size="lg"
               >

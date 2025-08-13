@@ -40,12 +40,14 @@ export default function Contact() {
     try {
       // Send notification to scott@zenprivata.com
       const notificationParams = {
-        user_email: data.email,
+        from_name: data.organization || 'Website Visitor',
+        from_email: data.email,
         organization: data.organization,
         message: data.message,
-        form_type: 'Contact Form Submission',
         timestamp: new Date().toLocaleString()
       };
+      
+      console.log('Sending contact form notification with params:', notificationParams);
       
       await emailjs.send(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
