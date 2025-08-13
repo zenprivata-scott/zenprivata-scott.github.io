@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useMutation } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -9,7 +8,6 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Download } from "lucide-react";
-import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 
 const leadFormSchema = z.object({
@@ -33,29 +31,46 @@ export default function LeadMagnetSection() {
     },
   });
 
-  const submitLeadMutation = useMutation({
-    mutationFn: async (data: LeadFormData) => {
-      return apiRequest("POST", "/api/leads", data);
-    },
-    onSuccess: () => {
-      setIsSubmitted(true);
-      toast({
-        title: "Success!",
-        description: "Thank you! Check your email for the download link.",
+  const onSubmit = async (data: LeadFormData) => {
+    try {
+      const formData = new FormData();
+      formData.append('email', data.email);
+      formData.append('organization', data.organization);
+      formData.append('gdprConsent', data.gdprConsent.toString());
+
+      const response = await fetch('https://formspree.io/f/mvgoywev', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
       });
-      form.reset();
-    },
-    onError: (error: any) => {
+
+      if (response.ok) {
+        setIsSubmitted(true);
+        toast({
+          title: "Success!",
+          description: "Thank you! We'll email you the download link shortly.",
+        });
+        form.reset();
+
+        // Provide immediate download link to the PDF
+        const link = document.createElement('a');
+        link.href = '/CDFI-SPF.pdf';
+        link.download = 'CDFI-Security-Privacy-Framework.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
       toast({
         title: "Error",
-        description: error.message || "Something went wrong. Please try again.",
+        description: "Something went wrong. Please try again.",
         variant: "destructive",
       });
-    },
-  });
-
-  const onSubmit = (data: LeadFormData) => {
-    submitLeadMutation.mutate(data);
+    }
   };
 
   if (isSubmitted) {
@@ -158,10 +173,10 @@ export default function LeadMagnetSection() {
                     <Button
                       type="submit"
                       className="w-full bg-zen-orange text-white hover:bg-orange-600 transition-colors"
-                      disabled={submitLeadMutation.isPending}
+                      disabled={form.formState.isSubmitting}
                     >
                       <Download className="mr-2 h-4 w-4" />
-                      {submitLeadMutation.isPending ? "Sending..." : "Download Free Framework"}
+                      {form.formState.isSubmitting ? "Sending..." : "Download Free Framework"}
                     </Button>
                   </form>
                 </Form>

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useMutation } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -11,7 +10,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Mail, Linkedin, Calendar, Download, Send } from "lucide-react";
-import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 
 const contactFormSchema = z.object({
@@ -37,30 +35,40 @@ export default function Contact() {
     },
   });
 
-  const submitContactMutation = useMutation({
-    mutationFn: async (data: ContactFormData) => {
-      return apiRequest("POST", "/api/contact", data);
-    },
-    onSuccess: () => {
-      setIsSubmitted(true);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      toast({
-        title: "Message Sent!",
-        description: "Thank you for your message! We'll get back to you soon.",
+  const onSubmit = async (data: ContactFormData) => {
+    try {
+      const formData = new FormData();
+      formData.append('email', data.email);
+      formData.append('organization', data.organization);
+      formData.append('message', data.message);
+      formData.append('consent', data.consent.toString());
+
+      const response = await fetch('https://formspree.io/f/xdkorzwj', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
       });
-      form.reset();
-    },
-    onError: (error: any) => {
+
+      if (response.ok) {
+        setIsSubmitted(true);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        toast({
+          title: "Message Sent!",
+          description: "Thank you for your message! We'll get back to you soon.",
+        });
+        form.reset();
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
       toast({
         title: "Error",
-        description: error.message || "Something went wrong. Please try again.",
+        description: "Something went wrong. Please try again.",
         variant: "destructive",
       });
-    },
-  });
-
-  const onSubmit = (data: ContactFormData) => {
-    submitContactMutation.mutate(data);
+    }
   };
 
 
@@ -175,10 +183,10 @@ export default function Contact() {
                   <Button
                     type="submit"
                     className="w-full bg-zen-orange text-white hover:bg-orange-600 transition-colors"
-                    disabled={submitContactMutation.isPending}
+                    disabled={form.formState.isSubmitting}
                   >
                     <Send className="mr-2 h-4 w-4" />
-                    {submitContactMutation.isPending ? "Sending..." : "Send Message"}
+                    {form.formState.isSubmitting ? "Sending..." : "Send Message"}
                   </Button>
                 </form>
               </Form>
