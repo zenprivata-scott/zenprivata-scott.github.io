@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Play, Download, Star } from "lucide-react";
+import dashboardTeamImage from "@assets/image_1755043696494.png";
 
 export default function HeroSection() {
   const handleRequestDemo = () => {
@@ -66,7 +67,7 @@ export default function HeroSection() {
             <Card className="shadow-2xl border-0 bg-white/90 backdrop-blur-sm">
               <CardContent className="p-6">
                 <img 
-                  src="/dashboard-team.webp" 
+                  src={dashboardTeamImage} 
                   alt="Team collaborating on cybersecurity dashboard"
                   className="w-full rounded-lg"
                 />
