@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Play, Download, Star } from "lucide-react";
+import { Link } from "wouter";
 import dashboardTeamImage from "@assets/image_1755043696494.png";
 
 export default function HeroSection() {
@@ -42,14 +43,15 @@ export default function HeroSection() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button
-                onClick={() => window.location.href = "/contact"}
-                className="bg-zen-orange text-white hover:bg-orange-600 transition-all duration-300 shadow-lg hover:shadow-xl"
-                size="lg"
-              >
-                <Play className="mr-2 h-5 w-5" />
-                Request Free Consultation
-              </Button>
+              <Link href="/contact">
+                <Button
+                  className="bg-zen-orange text-white hover:bg-orange-600 transition-all duration-300 shadow-lg hover:shadow-xl"
+                  size="lg"
+                >
+                  <Play className="mr-2 h-5 w-5" />
+                  Request Free Consultation
+                </Button>
+              </Link>
               <Button
                 onClick={handleDownloadFramework}
                 variant="outline"

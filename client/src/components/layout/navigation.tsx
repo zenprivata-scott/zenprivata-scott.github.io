@@ -61,13 +61,14 @@ export default function Navigation() {
             >
               Blog
             </a>
-            <Button 
-              variant="no-hover"
-              className="bg-zen-orange text-white hover:bg-orange-600 transition-colors"
-              onClick={() => window.location.href = "/contact"}
-            >
-              Request Free Consultation
-            </Button>
+            <Link href="/contact">
+              <Button 
+                variant="no-hover"
+                className="bg-zen-orange text-white hover:bg-orange-600 transition-colors"
+              >
+                Request Free Consultation
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
