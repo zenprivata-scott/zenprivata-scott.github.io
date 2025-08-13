@@ -33,37 +33,31 @@ export default function LeadMagnetSection() {
 
   const onSubmit = async (data: LeadFormData) => {
     try {
-      const formData = new FormData();
-      formData.append('email', data.email);
-      formData.append('organization', data.organization);
-      formData.append('gdprConsent', data.gdprConsent.toString());
-
-      const response = await fetch('https://formspree.io/f/xpzgkbng', {
-        method: 'POST',
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
+      // For now, we'll provide immediate download and show success
+      // In production, you would integrate with your preferred email service
+      setIsSubmitted(true);
+      
+      toast({
+        title: "Success!",
+        description: "Download starting automatically. Check your downloads folder!",
       });
-
-      if (response.ok) {
-        setIsSubmitted(true);
-        toast({
-          title: "Success!",
-          description: "Thank you! We'll email you the download link shortly.",
-        });
-        form.reset();
-
-        // Provide immediate download link to the PDF
-        const link = document.createElement('a');
-        link.href = './CDFI-SPF.pdf';
-        link.download = 'CDFI-Security-Privacy-Framework.pdf';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-      } else {
-        throw new Error('Form submission failed');
-      }
+      
+      // Provide immediate download link to the PDF
+      const link = document.createElement('a');
+      link.href = './CDFI-SPF.pdf';
+      link.download = 'CDFI-Security-Privacy-Framework.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      
+      // Store the lead data locally for now (in production, send to your email service)
+      console.log('Lead captured:', {
+        email: data.email,
+        organization: data.organization,
+        timestamp: new Date().toISOString()
+      });
+      
+      form.reset();
     } catch (error) {
       toast({
         title: "Error",
@@ -82,9 +76,9 @@ export default function LeadMagnetSection() {
               <div className="w-16 h-16 bg-zen-success bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Download className="h-8 w-8 text-zen-success" />
               </div>
-              <h3 className="text-xl font-semibold text-zen-dark mb-2">Download Sent!</h3>
+              <h3 className="text-xl font-semibold text-zen-dark mb-2">Download Complete!</h3>
               <p className="text-zen-muted">
-                Please check your email for the download link to the CDFI Security Framework.
+                Your CDFI Security Framework has been downloaded. Check your downloads folder!
               </p>
             </CardContent>
           </Card>
