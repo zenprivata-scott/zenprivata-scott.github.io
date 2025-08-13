@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle, Shield, Zap, Users, ArrowRight, Star } from "lucide-react";
+import { Link } from "wouter";
 
 export default function Product() {
   const features = [
@@ -48,14 +49,15 @@ export default function Product() {
               
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button 
-                  className="bg-zen-orange text-white hover:bg-orange-600 transition-all duration-300 shadow-lg hover:shadow-xl group"
-                  size="lg"
-                  onClick={() => window.location.href = "/contact"}
-                >
-                  Request Demo
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
+                <Link href="/contact">
+                  <Button 
+                    className="bg-zen-orange text-white hover:bg-orange-600 transition-all duration-300 shadow-lg hover:shadow-xl group"
+                    size="lg"
+                  >
+                    Request Demo
+                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </Link>
                 <Button 
                   variant="outline" 
                   className="border-2 border-zen-orange text-zen-orange hover:bg-zen-orange hover:text-white transition-all duration-300" 

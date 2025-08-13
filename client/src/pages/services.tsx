@@ -17,6 +17,7 @@ import {
   TrendingUp,
   Award
 } from "lucide-react";
+import { Link } from "wouter";
 import cdfiServicesImage from "@assets/cdfi services_1755044034761.webp";
 
 export default function Services() {
@@ -101,14 +102,15 @@ export default function Services() {
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button 
-                  className="bg-zen-orange text-white hover:bg-orange-600 transition-all duration-300 shadow-lg hover:shadow-xl group" 
-                  size="lg"
-                  onClick={() => window.location.href = "/contact"}
-                >
-                  Schedule Free Consultation
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
+                <Link href="/contact">
+                  <Button 
+                    className="bg-zen-orange text-white hover:bg-orange-600 transition-all duration-300 shadow-lg hover:shadow-xl group" 
+                    size="lg"
+                  >
+                    Schedule Free Consultation
+                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </Link>
                 <Button 
                   variant="outline" 
                   className="border-2 border-zen-orange text-zen-orange hover:bg-zen-orange hover:text-white transition-all duration-300" 

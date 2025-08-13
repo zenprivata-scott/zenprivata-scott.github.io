@@ -43,8 +43,8 @@ export default function LeadMagnetSection() {
 
       // Send welcome email to user
       const userEmailParams = {
-        user_name: data.organization ? `${data.organization} team` : 'Community Development Finance Professional',
-        user_email: data.email,
+        to_name: data.organization ? `${data.organization} team` : 'Community Development Finance Professional',
+        to_email: data.email,
         organization: data.organization || 'Community Development Finance Professional'
       };
       
@@ -59,10 +59,10 @@ export default function LeadMagnetSection() {
       
       // Send notification to scott@zenprivata.com
       const notificationParams = {
-        user_name: data.organization || 'Website Visitor',
-        user_email: data.email,
-        organization: data.organization || 'Not provided',
+        from_name: data.organization || 'Website Visitor',
+        from_email: data.email,
         message: 'CDFI Framework Download Request',
+        organization: data.organization || 'Not provided',
         timestamp: new Date().toLocaleString()
       };
       
